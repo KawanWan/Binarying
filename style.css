@@ -43,10 +43,10 @@ nav a {
     margin-left: 10px;
 }
 
-.material-symbols-outlined {
+.menu {
     color: #FFFFFF;
     margin-right: 10px;
-
+    font-size: 36px;
 }
 
 main {
@@ -67,7 +67,7 @@ section {
 }
 
 h1 {
-    font-size: 80px;
+    font-size: 120px;
     margin-bottom: 0;
     padding-bottom: 0;
 }
@@ -78,7 +78,7 @@ p {
 }
 
 h2 {
-    font-size: 40px;
+    font-size: 60px;
 }
 
 footer {
