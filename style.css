@@ -110,19 +110,20 @@ footer {
 
 @media only screen and (max-width: 768px) {
     nav {
-        height: auto;
+        width: auto;
     }
 
-    .link {
-        font-size: 16px;
+    nav a {
+        display: none;
     }
 
     .menu {
-        font-size: 24px;
+        display: flex;
     }
 
     main {
-        height: auto;
+        width: auto;
+        height: 60vh;
     }
 
     h1 {
@@ -134,6 +135,11 @@ footer {
     }
 
     footer {
-        height: auto;
+        width: auto;
+        height: 40vh;
+    }
+
+    .button-container img {
+        width: 120px;
     }
 }
