@@ -4,36 +4,6 @@
     border: 0;
 }
 
-@media only screen and (max-width: 768px) {
-    nav {
-        height: auto;
-    }
-
-    .link {
-        font-size: 16px;
-    }
-
-    .menu {
-        font-size: 24px;
-    }
-
-    main {
-        height: auto;
-    }
-
-    h1 {
-        font-size: 60px;
-    }
-
-    h2 {
-        font-size: 30px;
-    }
-
-    footer {
-        height: auto;
-    }
-}
-
 body {
     font-family: Arial, sans-serif;
     margin: 0;
@@ -136,4 +106,34 @@ footer {
     width: 296px;
     height: auto;
     border-radius: 10px;
+}
+
+@media only screen and (max-width: 768px) {
+    nav {
+        height: auto;
+    }
+
+    .link {
+        font-size: 16px;
+    }
+
+    .menu {
+        font-size: 24px;
+    }
+
+    main {
+        height: auto;
+    }
+
+    h1 {
+        font-size: 60px;
+    }
+
+    h2 {
+        font-size: 30px;
+    }
+
+    footer {
+        height: auto;
+    }
 }
