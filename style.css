@@ -8,7 +8,7 @@
 }
 
 h1 {
-    font-size: 6.5em;
+    font-size: 10vw;
     margin-bottom: 0;
     padding-bottom: 0;
 }
@@ -24,19 +24,26 @@ header {
     align-content: center;
     justify-content: center;
     flex-direction: column;
-    height: 100vh;
+    height: 80vh;
     color: white;
     background-color: #1f2020;
 }
 
 main {
+    height: 60vh;
     padding: 5vw;
     background-color: #0060FF;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    align-content: center;
+    justify-content: center;
 }
+
 main h2 {
     color: white;
     text-align: center;
-    font-size: 60px;
+    font-size: 7vw;
 }
 
 #courses {
@@ -48,7 +55,16 @@ main h2 {
 }
 
 #courses div {
+    margin-top: 10px;
     display: flex;
-    flex-flow: row wrap;
+    flex-direction: row;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: center;
+    align-content: center;
     width: 70vw;
+}
+
+#courses div img {
+    width: 25vw;
 }
