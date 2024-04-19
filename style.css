@@ -7,8 +7,19 @@
     font-family: "Poppins", sans-serif;
 }
 
+header {
+    display: flex;
+    align-items: center;
+    align-content: center;
+    justify-content: center;
+    flex-direction: column;
+    height: 90vh;
+    color: white;
+    background-color: #1f2020;
+}
+
 h1 {
-    font-size: 10vw;
+    font-size: 7vw;
     margin-bottom: 0;
     padding-bottom: 0;
 }
@@ -18,20 +29,8 @@ p {
     padding-top: 0;
 }
 
-header {
-    display: flex;
-    align-items: center;
-    align-content: center;
-    justify-content: center;
-    flex-direction: column;
-    height: 80vh;
-    color: white;
-    background-color: #1f2020;
-}
-
 main {
-    height: 60vh;
-    padding: 5vw;
+    height: 80vh;
     background-color: #0060FF;
     display: flex;
     flex-direction: column;
@@ -43,7 +42,7 @@ main {
 main h2 {
     color: white;
     text-align: center;
-    font-size: 7vw;
+    font-size: 5vw;
 }
 
 #courses {
@@ -66,5 +65,5 @@ main h2 {
 }
 
 #courses div img {
-    width: 25vw;
+    width: 17.5vw;
 }
