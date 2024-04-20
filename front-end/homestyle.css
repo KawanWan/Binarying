@@ -1,3 +1,14 @@
+header {
+    display: flex;
+    align-items: center;
+    align-content: center;
+    justify-content: center;
+    flex-direction: column;
+    height: 90vh;
+    color: white;
+    background-color: #1f2020;
+}
+
 h1 {
     font-size: 7vw;
     margin-bottom: 0;
@@ -9,19 +20,7 @@ p {
     padding-top: 0;
 }
 
-header {
-    display: flex;
-    align-items: center;
-    align-content: center;
-    justify-content: center;
-    flex-direction: column;
-    height: 80vh;
-    color: white;
-    background-color: #1f2020;
-}
-
 main {
-    box-sizing: border-box;
     height: 80vh;
     background-color: #0060FF;
     display: flex;
@@ -57,5 +56,15 @@ main h2 {
 }
 
 #courses div img {
-    width: 200px;
+    width: 17.5vw;
+}
+
+@media only screen and (max-width: 400px) {
+    header {
+        height: 60vh;
+    }
+
+    main {
+        height: 40vh;
+    }
 }
