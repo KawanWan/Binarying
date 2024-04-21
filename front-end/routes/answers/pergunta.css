@@ -9,7 +9,33 @@ body {
 }
 
 header {
-    padding: 2.5vh;
+    display: flex;
+    justify-content: start;
+    margin-top: 2.5vh;
+    margin-left: 2.5vh;
+}
+
+header a {
+    display: flex;
+    color: #FFFFFF;
+    text-decoration: none;
+    background-color: #0060ff;
+    border-radius: 50%;
+    width: 64px;
+    height: 64px;
+    left: 14px;
+    justify-content: center;
+    align-items: center;
+
+}
+
+header a:hover {
+    color: #1F2020;
+}
+
+header a i {
+    align-self: center;
+    font-size: 1.8em;
 }
 
 nav {
@@ -56,23 +82,22 @@ main {
     width: 30%;
     margin-right: 2.5vh;
     border-radius: 30px;
-    background-color: #1F2020;
+    background-color: #0060ff;
     border: 4px solid #FFFFFF;
     color: #FFFFFF;
     font-size: 3vh;
 }
 
 .section2 button:hover {
-    background-color: #0060FF;
+    background-color: #1F2020;
     opacity: 0.8;
 }
 
-@media only screen and (max-width: 500px) {
+@media only screen and (max-width: 1500px) {
     nav {
         display: flex;
         justify-content: center;
         margin-left: 0;
-        font-size: 5vh;
     }
 
     .section1 {
@@ -84,7 +109,57 @@ main {
     }
 
     .quadro_pergunta {
-        height: 25vh;
+
+        border-radius: 30px;
+    }
+
+    .section2 {
+        flex-direction: row;
+        flex-wrap: wrap;
+    }
+
+    .section2 button {
+        flex-basis: 35%;
+    }
+}
+
+@media only screen and (max-width: 700px) {
+    .quadro_pergunta {
+        height: 45vh;
+        width: 80vh;
+
+        border-radius: 30px;
+    }
+}
+
+@media only screen and (max-width: 550px) {
+    header a {
+        width: 32px;
+        height: 32px;
+        left: 7px;
+    }
+
+    header a i {
+        font-size: 0.9em;
+    }
+
+    nav {
+        display: flex;
+        justify-content: center;
+        margin-left: 0;
+        font-size: 8vh;
+    }
+
+    .section1 {
+        margin-left: 0;
+        margin-top: 5vh;
+
+        display: flex;
+        justify-content: center;
+    }
+
+    .quadro_pergunta {
+        height: 30vh;
         width: 50vh;
 
         border-radius: 30px;
