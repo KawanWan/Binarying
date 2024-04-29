@@ -8,4 +8,4 @@ public record Universe(
     String description,
     String[] coolors,
     List<World> worlds
-) {}
+    ) {}
