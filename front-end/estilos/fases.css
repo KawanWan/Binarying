@@ -17,8 +17,7 @@ header {
 }
 
 header a {
-    flex-grow: 0;
-    order: 0;
+    position: absolute;
     display: flex;
     color: #FFFFFF;
     text-decoration: none;
@@ -55,6 +54,17 @@ main {
     gap: 30px;
 }
 
+main a {
+    display: inline-block;
+    position: relative;
+}
+
 main img {
     height: 20vh;
+}
+
+.line {
+    width: 2px;
+    height: 20px;
+    background-color: #FFFFFF;
 }
