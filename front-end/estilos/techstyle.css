@@ -41,7 +41,7 @@ header a i {
     overflow:hidden;
 }
 
-#worlds div {
+#worlds a {
     display: flex;
     background-color: #0060ff;
     border-radius: 50%;
@@ -51,10 +51,10 @@ header a i {
     align-items: center;
 }
 
-#worlds div:hover {
+#worlds a:hover {
     cursor: pointer;
     border: 5px solid white;
 } 
-div:hover {
+a:hover {
     background-color: #1F2020;
 }
