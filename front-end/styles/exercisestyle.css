@@ -3,28 +3,30 @@ body {
 }
 
 header {
-    display: flex;
-    justify-content: start;
-    margin-top: 2.5vh;
-    margin-left: 2.5vh;
+    display: grid;
+    gap: 10px;
+    width: 100vw;
+    grid-template-areas: 
+    'back bar'
+    'back quest';
+    padding: 20px;
 }
 
 header a {
     display: flex;
+    grid-area: back;
     color: #FFFFFF;
     text-decoration: none;
     background-color: #0060ff;
     border-radius: 50%;
     width: 64px;
     height: 64px;
-    left: 14px;
     justify-content: center;
     align-items: center;
-
 }
 
 header a:hover {
-    color: #1F2020;
+    background-color: #5194ff;
 }
 
 header a i {
@@ -32,11 +34,35 @@ header a i {
     font-size: 1.8em;
 }
 
-nav h1{
-    margin-left: 20vh;
-    color: white;
+.progress-bar {
+    box-sizing: border-box;
+    display: flex;
+    grid-area: bar;
+    align-items: center;
+    width: 80vw;
+    height: 2em;
+    background-color: #fff;
+    border-radius: 1em;
+    padding: .4em;
+}
 
-    font-size: 8vh;
+.progress-bar::before {
+    box-sizing: content-box;
+    content: '';
+    width: calc(var(--width, 0) * 10%);
+    min-width: 2em;
+    max-width: 100%;
+    height: 1.5em;
+    background-color: #0060ff;
+    border-radius: 1em;
+}
+
+#question{
+    grid-area: quest;
+    width: 80vw;
+    text-align: justify;
+    font-size: 1.7em;
+    color: white;
 }
 
 main {
@@ -46,7 +72,7 @@ main {
     flex-direction: row;
 }
 
-.section1 {
+.content {
     flex-grow: 1;
     margin-left: 5vh;
     margin-top: 5vh;
@@ -60,7 +86,7 @@ main {
     border-radius: 30px;
 }
 
-.section2 {
+.answers {
     margin-top: 7vh;
     display: flex;
     flex-grow: 1;
@@ -71,7 +97,7 @@ main {
     flex-wrap: wrap;
 }
 
-.section2 button {
+.answers button {
     height: 11vh;
     width: 30%;
     margin-right: 2.5vh;
@@ -82,7 +108,7 @@ main {
     font-size: 3vh;
 }
 
-.section2 button:hover {
+.answers button:hover {
     background-color: #1F2020;
     opacity: 0.8;
 }
