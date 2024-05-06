@@ -12,20 +12,25 @@
 
 <body>
     <header>
-        <a href="../pages/phases.html">
-            <i class="fa-solid fa-arrow-left"></i>
-        </a>
+        <div class="back">
+            <a href="../pages/phases.html">
+                <i class="fa-solid fa-arrow-left"></i>
+            </a>
+        </div>
         <div class="progress-bar" style="--width: 0"></div>
         <h1 id="question">Aqui fica a pergunta deste exercicio.</h1>
+        <div id="user-life">
+            <i class="fa-solid fa-heart"></i>
+            <p>5</p>
+        </div>
     </header>
 
-    <main>
-        <section class="content">
-            <div class="quadro_pergunta"></div>
+    <main id="content">
+        <section class="figure">
         </section>
 
         <section class="answers">
-            <button onclick=progress()>Alternativa 1</button>
+            <button>Alternativa 1</button>
             <button>Alternativa 2</button>
             <button>Alternativa 3</button>
             <button>Alternativa 4</button>

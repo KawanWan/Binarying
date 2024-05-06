@@ -7,12 +7,12 @@ header {
     gap: 10px;
     width: 100vw;
     grid-template-areas: 
-    'back bar'
-    'back quest';
+    'back bar life'
+    'back quest void';
     padding: 20px;
 }
 
-header a {
+.back a {
     display: flex;
     grid-area: back;
     color: #FFFFFF;
@@ -25,11 +25,11 @@ header a {
     align-items: center;
 }
 
-header a:hover {
+.back a:hover {
     background-color: #5194ff;
 }
 
-header a i {
+.back a i {
     align-self: center;
     font-size: 1.8em;
 }
@@ -57,6 +57,24 @@ header a i {
     border-radius: 1em;
 }
 
+#user-life {
+    display: flex;
+    flex-direction: row;
+    width: 60px;
+    grid-area: life;
+    align-items: center;
+    gap: 5px;
+}
+#user-life i{
+    color: #E71D36;
+    font-size: 2em;
+}
+#user-life p {
+    color: white;
+    font-size: 1.8em;
+    font-weight: bold;
+}
+
 #question{
     grid-area: quest;
     width: 80vw;
@@ -65,51 +83,43 @@ header a i {
     color: white;
 }
 
-main {
-    margin-bottom: 2.5vh;
+#content {
     display: flex;
-    flex-wrap: wrap;
     flex-direction: row;
+    justify-content: space-evenly;
+    align-items: center;
+    padding: 50px;
 }
 
-.content {
+.figure {
     flex-grow: 1;
-    margin-left: 5vh;
-    margin-top: 5vh;
-}
-
-.quadro_pergunta {
     background-color: #D9D9D9;
-    height: 50vh;
-    width: 100vh;
-
+    height: 45vh;
+    max-width: 40vw;
     border-radius: 30px;
 }
 
 .answers {
-    margin-top: 7vh;
     display: flex;
-    flex-grow: 1;
+    flex-direction: column;
     justify-content: space-evenly;
     align-items: center;
     gap: 5vh;
-    flex-direction: row;
-    flex-wrap: wrap;
 }
 
 .answers button {
     height: 11vh;
-    width: 30%;
-    margin-right: 2.5vh;
+    width: 15vw;
     border-radius: 30px;
-    background-color: #0060ff;
+    background-color: #1f2020;
     border: 4px solid #FFFFFF;
     color: #FFFFFF;
     font-size: 3vh;
 }
 
 .answers button:hover {
-    background-color: #1F2020;
+    cursor: pointer;
+    background-color: #0060ff;
     opacity: 0.8;
 }
 
