@@ -1,0 +1,14 @@
+{
+    "configurations": [
+        {
+            "type": "java",
+            "name": "Spring Boot-Application<bin-project>",
+            "request": "launch",
+            "cwd": "${workspaceFolder}",
+            "mainClass": "com.binarying.binproject.Application",
+            "projectName": "bin-project",
+            "args": "",
+            "envFile": "${workspaceFolder}/.env"
+        }
+    ]
+}
