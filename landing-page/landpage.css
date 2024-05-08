@@ -1,0 +1,113 @@
+nav {
+    display: flex;
+    height: 10vh;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0.5vh;
+    padding-left: 2vh;
+    padding-right: 2vh;
+    gap: 5vh;
+
+    background-color: #0060FF;
+    color: #FFFFFF;
+}
+
+nav h2 {
+    display: inline;
+}
+
+header {
+    padding-left: 20vh;
+    padding-right: 20vh;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    align-content: center;
+    justify-content: center;
+    text-align: center;
+    height: 90vh;
+
+    color: #FFFFFF;
+    background-color: #1f2020;
+}
+
+header h1 {
+    font-size: 7vw;
+    margin-bottom: 0;
+    padding-bottom: 0;
+}
+
+.header1 img {
+    height: 50vh;
+}
+
+.header2 {
+    padding-left: 20vh;
+}
+
+.header2 p {
+    margin-top: 0;
+    padding-top: 0;
+}
+
+.header2 a {
+    display: inline-block;
+    padding: 5px 20px;
+    text-decoration: none;
+    background-color: #0060FF;
+    color: #FFFFFF;
+    border: 2px solid #FFFFFF;
+    border-radius: 20px;
+    margin-top: 5vh;
+}
+
+main {
+    height: 80vh;
+    background-color: #0060FF;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    align-content: center;
+    justify-content: center;
+}
+
+main h2 {
+    color: #FFFFFF;
+    text-align: center;
+    font-size: 5vw;
+}
+
+main a {}
+
+#courses {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    align-content: center;
+    justify-content: center;
+}
+
+#courses div {
+    margin-top: 10px;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: center;
+    align-content: center;
+    width: 70vw;
+}
+
+#courses div img {
+    width: 17.5vw;
+}
+
+@media only screen and (max-width: 450px) {
+    header {
+        height: 60vh;
+    }
+
+    main {
+        height: 40vh;
+    }
+}

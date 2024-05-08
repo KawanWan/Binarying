@@ -55,6 +55,3 @@ header a i {
     cursor: pointer;
     border: 5px solid white;
 } 
-a:hover {
-    background-color: #1F2020;
-}
