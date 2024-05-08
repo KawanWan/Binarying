@@ -6,5 +6,5 @@ public record World(
     Integer id,
     String name,
     String description,
-    List<Level> levels
+    List<Phase> phases
 ) {}
