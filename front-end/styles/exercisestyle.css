@@ -3,6 +3,7 @@ body {
 }
 
 header {
+    box-sizing: border-box;
     display: grid;
     gap: 10px;
     width: 100vw;
