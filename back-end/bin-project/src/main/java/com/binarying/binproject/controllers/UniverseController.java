@@ -14,7 +14,7 @@ import org.springframework.web.bind.annotation.ResponseStatus;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.binarying.binproject.entities.Universe;
-import com.binarying.binproject.exceptions.DataNotFoundException;
+import com.binarying.binproject.exceptions.UniverseNotFoundException;
 import com.binarying.binproject.repositories.UniverseRepository;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.PutMapping;
@@ -40,7 +40,7 @@ public class UniverseController {
     public Universe findById(@PathVariable Integer id) {
         Optional<Universe> universe = universeRepository.findById(id);
         if (universe.isEmpty()) {
-            throw new DataNotFoundException();
+            throw new UniverseNotFoundException();
         }
         return universe.get();
     }
