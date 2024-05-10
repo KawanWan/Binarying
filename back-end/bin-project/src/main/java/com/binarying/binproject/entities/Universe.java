@@ -1,11 +1,11 @@
 package com.binarying.binproject.entities;
 
-import java.util.List;
+import org.springframework.data.annotation.Id;
 
 public record Universe(
-    Integer id,
-    String name,
-    String description,
-    String[] coolors,
-    List<World> worlds
-    ) {}
+        @Id Integer id,
+        String name,
+        String description,
+        String[] colors
+        
+        ){}

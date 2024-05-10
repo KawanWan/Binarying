@@ -11,28 +11,27 @@ CREATE TABLE IF NOT EXISTS student (
     username VARCHAR(200) NOT NULL,
     password VARCHAR(64) NOT NULL
 );
-
 CREATE TABLE IF NOT EXISTS universe (
-    id INT PRIMARY KEY,
+    id SERIAL PRIMARY KEY NOT NULL,
     name VARCHAR(200),
-    description TEXT
-);
+    description TEXT,
+    colors VARCHAR(20)
+    );
 
-CREATE TABLE IF NOT EXISTS world (
-    id INT PRIMARY KEY,
+    CREATE TABLE IF NOT EXISTS world (
+    id SERIAL PRIMARY KEY,
     name VARCHAR(150),
     description TEXT,
-    universe_id INT NOT NULL,
+    universe_id INT,
     FOREIGN KEY (universe_id) REFERENCES universe(id)
 );
-
 CREATE TABLE IF NOT EXISTS phase (
     id INT PRIMARY KEY,
     name VARCHAR(150),
     description TEXT,
     concept_code INT,
-    world_id INT NOT NULL,
-    FOREIGN KEY (world_id) REFERENCES world(id)
+    world_id INT,
+    FOREIGN KEY(world_id) REFERENCES world(id)
 );
 
 CREATE TABLE IF NOT EXISTS exercise (
@@ -40,9 +39,10 @@ CREATE TABLE IF NOT EXISTS exercise (
     concept_code INT,
     question TEXT NOT NULL,
     answers VARCHAR(10000) NOT NULL,
-    correct_answer VARCHAR(3000) NOT NULL
+    correct_answer VARCHAR(3000) NOT NULL,
+    phase_id INT,
+    FOREIGN KEY (phase_id) REFERENCES phase(id)
 );
-
 CREATE TABLE IF NOT EXISTS student_progress (
     id_phase INT NOT NULL,
     id_student INT NOT NULL,
