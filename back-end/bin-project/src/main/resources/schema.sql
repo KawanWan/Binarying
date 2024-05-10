@@ -26,7 +26,7 @@ CREATE TABLE IF NOT EXISTS universe (
     FOREIGN KEY (universe_id) REFERENCES universe(id)
 );
 CREATE TABLE IF NOT EXISTS phase (
-    id INT PRIMARY KEY,
+    id SERIAL PRIMARY KEY,
     name VARCHAR(150),
     description TEXT,
     concept VARCHAR(50),
@@ -36,7 +36,7 @@ CREATE TABLE IF NOT EXISTS phase (
 );
 
 CREATE TABLE IF NOT EXISTS exercise (
-    id INT PRIMARY KEY,
+    id SERIAL PRIMARY KEY,
     concept_code INT,
     question TEXT NOT NULL,
     answers VARCHAR(10000) NOT NULL,
