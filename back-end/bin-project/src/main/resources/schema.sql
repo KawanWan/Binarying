@@ -29,7 +29,8 @@ CREATE TABLE IF NOT EXISTS phase (
     id INT PRIMARY KEY,
     name VARCHAR(150),
     description TEXT,
-    concept_code INT,
+    concept VARCHAR(50),
+    difficulty VARCHAR(20),
     world_id INT,
     FOREIGN KEY(world_id) REFERENCES world(id)
 );

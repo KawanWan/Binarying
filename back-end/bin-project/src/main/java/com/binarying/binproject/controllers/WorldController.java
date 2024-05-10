@@ -13,54 +13,56 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseStatus;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.binarying.binproject.entities.Universe;
+import com.binarying.binproject.entities.World;
 import com.binarying.binproject.exceptions.DataNotFoundException;
-import com.binarying.binproject.repositories.UniverseRepository;
+
+import com.binarying.binproject.repositories.WorldRepository;
+
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 
 @RestController
-@RequestMapping("/api/universe")
-public class UniverseController {
+@RequestMapping("/api/world")
+public class WorldController {
 
-    private final UniverseRepository universeRepository;
+    private final WorldRepository worldRepository;
 
-    public UniverseController(UniverseRepository universeRepository) {
+    public WorldController(WorldRepository worldRepository) {
 
-        this.universeRepository = universeRepository;
+        this.worldRepository = worldRepository;
     }
 
     @GetMapping("")
-    List<Universe> findAll() {
-        return universeRepository.findAll();
+    List<World> findAll() {
+        return worldRepository.findAll();
     }
 
     @GetMapping("/{id}")
-    public Universe findById(@PathVariable Integer id) {
-        Optional<Universe> universe = universeRepository.findById(id);
-        if (universe.isEmpty()) {
+    public World findById(@PathVariable Integer id) {
+        Optional<World> world = worldRepository.findById(id);
+        if (world.isEmpty()) {
             throw new DataNotFoundException();
         }
-        return universe.get();
+        return world.get();
     }
 
     @ResponseStatus(HttpStatus.CREATED)
     @PostMapping("")
-    void create(@Valid @RequestBody Universe universe) {
-        universeRepository.save(universe);
+    void create(@Valid @RequestBody World world) {
+        worldRepository.save(world);
     }
 
     @ResponseStatus(HttpStatus.NO_CONTENT)
     @PutMapping("/{id}")
-    void update(@Valid @RequestBody Universe universe, @PathVariable Integer id) {
-        universeRepository.save(universe);
+    void update(@Valid @RequestBody World world, @PathVariable Integer id) {
+        worldRepository.save(world);
     }
 
     @ResponseStatus(HttpStatus.NO_CONTENT)
     @DeleteMapping("/{id}")
     void delete(@PathVariable Integer id) {
-        universeRepository.delete(universeRepository.findById(id).get());
+        worldRepository.delete(worldRepository.findById(id).get());
 
     }
 }

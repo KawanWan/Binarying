@@ -1,10 +1,12 @@
 package com.binarying.binproject.entities;
 
-import java.util.List;
+import org.springframework.data.annotation.Id;
+  
 
 public record World(
+    @Id
     Integer id,
     String name,
     String description,
-    List<Phase> phases
+    Integer universe_id
 ) {}
