@@ -29,7 +29,7 @@
     top: 15px;
 }
 
-.back-button a {
+.back-button button {
     display: flex;
     grid-area: back;
     color: #FFFFFF;
@@ -40,13 +40,14 @@
     height: 64px;
     justify-content: center;
     align-items: center;
+    cursor: pointer;
 }
 
-.back-button a:hover {
+.back-button button:hover {
     background-color: var(--main-color);
 }
 
-.back-button a i {
+.back-button button i {
     align-self: center;
     font-size: 1.8em;
     color: #fff;

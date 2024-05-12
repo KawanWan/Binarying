@@ -1,5 +1,7 @@
 package com.binarying.binproject.repositories;
 
+import java.util.List;
+
 import org.springframework.data.jdbc.repository.query.Modifying;
 import org.springframework.data.jdbc.repository.query.Query;
 import org.springframework.data.repository.ListCrudRepository;
@@ -13,4 +15,7 @@ public interface WorldRepository extends ListCrudRepository<World, Integer> {
     @Transactional
     @Query("UPDATE World SET universe_id = :universeId WHERE id = :worldId")
     void setUniverseId(@Param("worldId") Integer worldId, @Param("universeId") Integer UniverseId);
+
+    @Query("SELECT * FROM world WHERE universe_id = :universeId")
+    public List<World> findAllByUniverseId(Integer universeId);
 }
