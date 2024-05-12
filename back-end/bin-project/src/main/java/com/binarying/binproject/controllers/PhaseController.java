@@ -80,10 +80,10 @@ public class PhaseController {
     }
 
     @ResponseStatus(HttpStatus.NO_CONTENT)
-    @PutMapping("/setworld/{id}") // Example --> http://localhost:8080/api/phase/setworld/{id}?world_id={world_id}
-    public void setWorld(@PathVariable Integer id, @RequestParam Integer world_id) {
+    @PutMapping("/setworld/{id}") // Example --> http://localhost:8080/api/phase/setworld/{id}?worldId={worldId}
+    public void setWorld(@PathVariable Integer id, @RequestParam Integer worldId) {
 
-        Optional<World> optWorld = worldRepository.findById(world_id);
+        Optional<World> optWorld = worldRepository.findById(worldId);
         Optional<Phase> optPhase = phaseRepository.findById(id);
 
         if (optWorld.isEmpty()) {
@@ -93,7 +93,7 @@ public class PhaseController {
             throw new PhaseNotFoundException();
         }
 
-        phaseRepository.setWorldId(id, world_id);
+        phaseRepository.setWorldId(id, worldId);
     }
 
     @ResponseStatus(HttpStatus.NO_CONTENT)

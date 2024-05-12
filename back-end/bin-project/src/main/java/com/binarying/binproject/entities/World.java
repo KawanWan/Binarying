@@ -1,6 +1,7 @@
 package com.binarying.binproject.entities;
 
 import org.springframework.data.annotation.Id;
+import org.springframework.data.relational.core.mapping.Column;
   
 
 public record World(
@@ -8,5 +9,6 @@ public record World(
     Integer id,
     String name,
     String description,
-    Integer universe_id
+    @Column("universe_id")
+    Integer universeId
 ) {}

@@ -1,6 +1,7 @@
 package com.binarying.binproject.entities;
 
 import org.springframework.data.annotation.Id;
+import org.springframework.data.relational.core.mapping.Column;
 
 import com.binarying.binproject.entities.enumerations.Difficulty;
 
@@ -10,6 +11,6 @@ public record Phase(
         String description,
         String concept,
         Difficulty difficulty,
-        Integer world_id
+        @Column("world_id") Integer worldId
         
         ) {}
