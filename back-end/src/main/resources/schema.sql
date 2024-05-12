@@ -42,6 +42,7 @@ CREATE TABLE IF NOT EXISTS exercise (
     id SERIAL PRIMARY KEY,
     concept VARCHAR(50),
     exerciseType VARCHAR(30),
+    difficulty VARCHAR(20),
     question TEXT NOT NULL,
     answers TEXT NOT NULL,
     correctAnswer TEXT NOT NULL,

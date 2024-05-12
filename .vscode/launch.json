@@ -9,6 +9,16 @@
             "projectName": "bin-project",
             "args": "",
             "envFile": "${workspaceFolder}/.env"
+        },
+        {
+            "type": "java",
+            "name": "Spring Boot-Application<back-end>",
+            "request": "launch",
+            "cwd": "${workspaceFolder}",
+            "mainClass": "com.binarying.binproject.Application",
+            "projectName": "back-end",
+            "args": "",
+            "envFile": "${workspaceFolder}/.env"
         }
     ]
 }

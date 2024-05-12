@@ -53,6 +53,12 @@ public class ExerciseController {
         return exercise.get();
     }
 
+    @GetMapping("/random")  // Example ---> http://localhost:8080/api/exercise/random?concept={concept}&difficulty={difficulty}&limit={limit}
+    public List<Exercise> findRandomConceptDifficulty(@RequestParam String concept, @RequestParam String difficulty, @RequestParam Integer limit){
+        return exerciseRepository.findRandomConceptDifficulty(concept, difficulty, limit);
+    }
+    
+
     @ResponseStatus(HttpStatus.CREATED)
     @PostMapping("")
     void create(@Valid @RequestBody Exercise exercise) {
