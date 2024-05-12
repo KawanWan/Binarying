@@ -18,9 +18,9 @@ CREATE TABLE IF NOT EXISTS universe (
     description TEXT,
     colors VARCHAR(20),
     icon VARCHAR(30)
-    );
+);
 
-    CREATE TABLE IF NOT EXISTS world (
+CREATE TABLE IF NOT EXISTS world (
     id SERIAL PRIMARY KEY,
     name VARCHAR(150),
     description TEXT,

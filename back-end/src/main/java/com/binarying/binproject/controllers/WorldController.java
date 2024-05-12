@@ -38,10 +38,13 @@ public class WorldController {
     }
 
     @GetMapping("")
-    List<World> findAll() {
-        return worldRepository.findAll();
+    List<World> findAll(@RequestParam(required = false) Integer universeId) {
+        if (universeId == null) {
+            return worldRepository.findAll();
+        }
+        return worldRepository.findAllByUniverseId(universeId);
     }
-
+    
     @GetMapping("/{id}")
     public World findById(@PathVariable Integer id) {
         Optional<World> world = worldRepository.findById(id);
