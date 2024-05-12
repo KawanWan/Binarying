@@ -1,1 +1,1 @@
-INSERT INTO universe(name, description, colors) VALUES ('Java', 'Aprenda java e conceitos de orientação a objetos!', '#f89820,#5382a1');
+INSERT INTO universe(name, description, colors, icon) VALUES ('Java', 'Aprenda java e conceitos de orientação a objetos!', '#fff,#5382a1', 'fa-brands fa-java'), ('JavaScript', '', '#323330, #F0DB4F', 'fa-brands fa-js');

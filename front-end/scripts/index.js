@@ -7,11 +7,11 @@ fetch('http://localhost:8080/api/universe')
 
 function loadUniverse(json) {
     json.forEach(universe => {
-        universeList.innerHTML += `<div class="universe">
-                                    <div class="icon" style="--color-theme: ${universe.colors[0]}">
-                                        <i class="fa-solid fa-image"></i>
+        universeList.innerHTML += `<a class="universe" href="pages/worlds.html?universe=${universe.id}">
+                                    <div class="icon" style="--color-icon: ${universe.colors[0]}; --color-theme: ${universe.colors[1]}">
+                                        <i class="${universe.icon} fa-fw"></i>
                                     </div>
                                     <p class="name">${universe.name}</p>
-                                </div>`
+                                </a>`
     });
 }

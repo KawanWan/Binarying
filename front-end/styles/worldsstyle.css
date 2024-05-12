@@ -1,5 +1,5 @@
 body {
-    background-color: #1f2020;
+    background-color: var(--dark-color);
     color: white;
 }
 
@@ -7,29 +7,7 @@ header {
     display: flex;
     justify-content: center;
     margin-top: 15px;
-}
-
-header a {
-    position: absolute;
-    display: flex;
-    color: #FFFFFF;
-    text-decoration: none;
-    background-color: #0060ff;
-    border-radius: 50%;
-    width: 64px;
-    height: 64px;
-    left: 14px;
-    justify-content: center;
-    align-items: center;
-}
-
-header a:hover {
-    color: #1F2020;
-}
-
-header a i {
-    align-self: center;
-    font-size: 1.8em;
+    width: 100%;
 }
 
 #worlds {
@@ -41,17 +19,33 @@ header a i {
     overflow:hidden;
 }
 
-#worlds a {
+.world-list {
     display: flex;
-    background-color: #0060ff;
+    flex-direction: row;
+    align-items: center;
+}
+.world-content {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 33vw;
+    height: 100%;
+}
+.world {
+    display: flex;
+    box-sizing: border-box;
+    background-color: var(--main-color);
     border-radius: 50%;
     width: 128px;
     height: 128px;
     justify-content: center;
     align-items: center;
+    color: var(--light-color);
+    font-size: 2.5em;
+    font-weight: bold;
 }
 
-#worlds a:hover {
+.world:hover {
     cursor: pointer;
     border: 5px solid white;
 } 

@@ -4,7 +4,7 @@ body {
     align-items: center;
     height: 100vh;
 
-    background-color: #1F2020;
+    background-color: var(--dark-color);
 }
 
 header {
@@ -21,7 +21,7 @@ header a {
     display: flex;
     color: #FFFFFF;
     text-decoration: none;
-    background-color: #0060ff;
+    background-color: var(--main-color);
     border-radius: 50%;
     width: 64px;
     height: 64px;
@@ -31,7 +31,7 @@ header a {
 }
 
 header a:hover {
-    color: #1F2020;
+    color: var(--main-color);
 }
 
 header a i {

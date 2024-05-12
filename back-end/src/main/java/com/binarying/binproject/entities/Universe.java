@@ -6,6 +6,6 @@ public record Universe(
         @Id Integer id,
         String name,
         String description,
-        String[] colors
-        
+        String[] colors,
+        String icon
         ){}

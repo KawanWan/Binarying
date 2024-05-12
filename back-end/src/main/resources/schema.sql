@@ -16,7 +16,8 @@ CREATE TABLE IF NOT EXISTS universe (
     id SERIAL PRIMARY KEY NOT NULL,
     name VARCHAR(200),
     description TEXT,
-    colors VARCHAR(20)
+    colors VARCHAR(20),
+    icon VARCHAR(30)
     );
 
     CREATE TABLE IF NOT EXISTS world (

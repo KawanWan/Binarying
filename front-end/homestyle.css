@@ -6,7 +6,7 @@ header {
     flex-direction: column;
     height: 90vh;
     color: white;
-    background-color: #1f2020;
+    background-color: var(--dark-color);
 }
 
 h1 {
@@ -22,7 +22,7 @@ p {
 
 main {
     height: 80vh;
-    background-color: #0060FF;
+    background-color: var(--main-color);
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -48,7 +48,7 @@ main h2 {
     margin-top: 10px;
     display: grid;
     grid-template-columns: repeat(4, 1fr);
-    gap: 10px;
+    gap: 18px;
     align-items: center;
     justify-content: center;
     align-content: center;
@@ -60,28 +60,33 @@ main h2 {
     flex-direction: row;
     align-items: center;
     max-width: 300px;
-    padding: 20px;
+    padding: 15px;
     border-radius: 2em;
-    background-color: #D9D9D9;
+    background-color: var(--light-color);
     cursor: pointer;
+    text-align: center;
 }
 
 .icon {
     display: flex;
     background-color: var(--color-theme);
-    max-width: 96px;
-    max-height: 96px;
+    min-width: 92px;
+    min-height: 92px;
+    width: 92px;
+    height: 92px;
     justify-content: center;
     align-items: center;
     border-radius: 50%;
 }
 
 .icon i {
-    font-size: 2.5em;
-    padding: 16px;
+    font-size: 3em;
+    font-weight: bold;
+    color: var(--color-icon);
 }
 
 .universe .name {
+    color: var(--dark-color);
     font-size: 2em;
     font-weight: bold;
     margin-left: 5%;
