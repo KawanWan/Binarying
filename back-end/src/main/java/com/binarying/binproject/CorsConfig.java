@@ -10,7 +10,7 @@ public class CorsConfig implements WebMvcConfigurer {
     @Override
     public void addCorsMappings(CorsRegistry registry) {
         registry.addMapping("/api/**") // Especifique o caminho da sua API
-                .allowedOrigins("http://localhost:5500") // URL permitida para acesso
+                .allowedOrigins("http://localhost:8000") // URL permitida para acesso
                 .allowedMethods("GET", "POST", "PUT", "DELETE"); // Métodos HTTP permitidos
     }
 }
