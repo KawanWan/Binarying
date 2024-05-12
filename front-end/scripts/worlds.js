@@ -11,7 +11,7 @@ function load() {
 
     const url = 'http://localhost:8080/api/world?universeId=' + urlParams.get('universe_id');
     fetch(url).then(response => response.json())
-        .then(json => loadWorlds(json));
+        .then(json => loadWorlds(json))
 }
 
 function loadWorlds(json) {
@@ -19,6 +19,19 @@ function loadWorlds(json) {
         worldList.innerHTML += `<div class="world-content swiper-slide">
                                     <a class="world" href="phases.html">${world.id}</a>
                                 </div>`
+    });
+
+    var swiper = new Swiper("#worlds", {
+        slidesPerView: 3,
+        navigation: {
+        nextEl: ".swiper-button-next",
+        prevEl: ".swiper-button-prev",
+        },
+        pagination: {
+        el: ".swiper-pagination",
+        },
+        mousewheel: true,
+        keyboard: true,
     });
 }
 
