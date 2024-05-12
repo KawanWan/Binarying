@@ -1,0 +1,1 @@
+INSERT INTO universe(name, description, colors) VALUES ('Java', 'Aprenda java e conceitos de orientação a objetos!', '#f89820,#5382a1');

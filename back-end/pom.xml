@@ -9,10 +9,10 @@
 		<relativePath/> <!-- lookup parent from repository -->
 	</parent>
 	<groupId>com.binarying</groupId>
-	<artifactId>bin-project</artifactId>
+	<artifactId>back-end</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
-	<name>bin-project</name>
-	<description>Demo project for Spring Boot</description>
+	<name>back-end</name>
+	<description>BackEnd do projeto Binarying</description>
 	<properties>
 		<java.version>21</java.version>
 	</properties>
