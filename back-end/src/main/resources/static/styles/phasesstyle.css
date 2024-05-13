@@ -39,10 +39,9 @@ header a i {
     font-size: 1.8em;
 }
 
-header h1 {
+#title {
     flex-grow: 2;
     font-size: 8vh;
-
     color: #FFFFFF;
 }
 
@@ -55,7 +54,6 @@ main {
 
 #phases {
     position: absolute;
-    border: 5px solid var(--main-color);
     min-width: 920px;
     min-height: 920px;
     z-index: -1;

@@ -17,7 +17,7 @@ function load() {
 function loadWorlds(json) {
     json.forEach(world => {
         worldList.innerHTML += `<div class="world-content swiper-slide">
-                                    <a class="world" href="phases.html?world=${world.id}">${world.id}</a>
+                                    <a class="world" href="phases.html?world_id=${world.id}&world_name=${world.name}">${world.id}</a>
                                 </div>`
     });
 

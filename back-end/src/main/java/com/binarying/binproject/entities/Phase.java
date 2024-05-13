@@ -11,6 +11,8 @@ public record Phase(
         String description,
         String concept,
         Difficulty difficulty,
+        Integer x,
+        Integer y,
         @Column("world_id") Integer worldId
         
         ) {}

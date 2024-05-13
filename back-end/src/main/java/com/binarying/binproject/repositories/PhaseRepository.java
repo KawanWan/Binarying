@@ -10,6 +10,9 @@ import com.binarying.binproject.entities.Phase;
 import java.util.List;
 
 public interface PhaseRepository extends ListCrudRepository<Phase, Integer> {
+    @Query("SELECT * FROM Phase WHERE world_id = :worldId")
+    List<Phase> findByWorld(Integer worldId);
+
     List<Phase> findByConcept(String concept);
 
     List<Phase> findByConceptAndDifficulty(String concept, String difficulty);

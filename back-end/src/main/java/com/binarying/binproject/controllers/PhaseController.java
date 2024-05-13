@@ -6,6 +6,7 @@ import com.binarying.binproject.entities.Phase;
 import com.binarying.binproject.entities.World;
 import com.binarying.binproject.exceptions.PhaseNotFoundException;
 import com.binarying.binproject.exceptions.WorldNotFoundException;
+import com.binarying.binproject.repositories.PhaseMountedMap;
 import com.binarying.binproject.repositories.PhaseRepository;
 import com.binarying.binproject.repositories.WorldRepository;
 
@@ -31,15 +32,19 @@ public class PhaseController {
 
     private final WorldRepository worldRepository;
     private final PhaseRepository phaseRepository;
+    private final PhaseMountedMap phaseMountedMap;
 
-    public PhaseController(PhaseRepository phaseRepository, WorldRepository worldRepository) {
+    public PhaseController(PhaseRepository phaseRepository, WorldRepository worldRepository, PhaseMountedMap phaseMountedMap) {
         this.phaseRepository = phaseRepository;
         this.worldRepository = worldRepository;
+        this.phaseMountedMap = phaseMountedMap;
     }
 
     @GetMapping("")
-    List<Phase> findAll() {
-        return phaseRepository.findAll();
+    List<Phase> findAll(@RequestParam(required = false) Integer worldId) {
+        if (worldId == null)
+            return phaseRepository.findAll();
+        return phaseRepository.findByWorld(worldId);
     }
 
     @GetMapping("/{id}")
@@ -102,4 +107,8 @@ public class PhaseController {
         phaseRepository.delete(phaseRepository.findById(id).get());
     }
 
+    @GetMapping("/arrayMap/{worldId}")
+    public Integer[][] getMap(@PathVariable Integer worldId) {
+        return phaseMountedMap.getPhasesMap(worldId);
+    }
 }
