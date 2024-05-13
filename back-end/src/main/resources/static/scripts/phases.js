@@ -21,10 +21,12 @@ function loadPhases(arraymap) {
             phases.innerHTML += block;
         }
     }
+    phases.querySelectorAll('a').forEach(element => {element.draggable = false});
 }
 
 function loadBlock(map, posX, posY, divSize) {
     let img;
+    let cursor = 'inherit';
 
     const imgpath = '../imgs/assets/phases/';
     switch (map[posX][posY]) {
@@ -36,9 +38,11 @@ function loadBlock(map, posX, posY, divSize) {
             break;
         case 3:
             img = imgpath + 'unlocked.svg';
+            cursor = 'pointer';
             break;
         case 4:
             img = imgpath + 'completed.svg';
+            cursor = 'pointer';
             break;
         default:
             break;
@@ -49,19 +53,25 @@ function loadBlock(map, posX, posY, divSize) {
         let posLeft = ((divSize / 2 + ((-posX + posY) * 92)) - 184) + 'px';
         let posTop = (divSize - ((posX + posY) * 46) - 184) + 'px';
 
-        return `<a href='#' style='position: absolute; z-index: ${zIndex};left: ${posLeft}; top: ${posTop}'><img src=${img} alt="Block"></a>`;
+        const div = `<div style='position: absolute; left: ${posLeft}; top: ${posTop}; background-image: url(${img}); width: 184px; height: 184px; z-index: ${zIndex};' alt="Block" draggable=false></div>`;
+
+        if (img === imgpath + 'blank.svg' || img === imgpath + 'locked.svg') {
+            return div;
+        }
+        return `<a href='#' style='position: absolute; left: ${posLeft}; top: ${posTop}; cursor: ${cursor}; width: 184px; height: 92px; z-index: ${zIndex + 10};'></a>${div}`;
     }
-    return undefined;
+    return '';
 }
 // ------------------------------------------------------------------------------------ //
 main.addEventListener('mousedown', function(event) {
     offSetX = event.clientX - phases.getBoundingClientRect().left;
     offSetY = event.clientY - phases.getBoundingClientRect().top;
-
+    main.style.cursor = 'grabbing';
     document.addEventListener('mousemove', onMouseMove);
 })
 
 document.addEventListener('mouseup', function() {
+    main.style.cursor = "grab";
     document.removeEventListener('mousemove', onMouseMove)
 })
 
