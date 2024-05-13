@@ -57,7 +57,7 @@ function fill(arrayMap, phasesJson) {
     phases.querySelectorAll('a').forEach(element => {element.draggable = false});
 }
 
-function loadBlock(map, posX, posY, divSize, phases) {
+function loadBlock(map, posX, posY, divSize, phasesJson) {
     let img;
     let cursor = 'inherit';
 
@@ -87,12 +87,15 @@ function loadBlock(map, posX, posY, divSize, phases) {
         let posLeft = ((divSize / 2 + ((-posX + posY) * 92)) - 184) + 'px';
         let posTop = (divSize - ((posX + posY) * 46) - 184) + 'px';
         let a;
-        phases.forEach(element => {
+        for (let i = 0; i < phasesJson.length; i++) {
+            let element = phasesJson[i];
             if (element.x == posX && element.y == posY) {
                 a = `exercise.html?phaseId=${element.id}`;
+                i = phasesJson.length;
+            } else {
+                a = '#';
             }
-            a = '#';
-        })
+        }
 
         const div = `<div style='position: absolute; left: ${posLeft}; top: ${posTop}; background-image: url(${img}); width: 184px; height: 184px; z-index: ${zIndex};' alt="Block" draggable=false></div>`;
 
