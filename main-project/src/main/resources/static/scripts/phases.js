@@ -90,7 +90,7 @@ function loadBlock(map, posX, posY, divSize, phasesJson) {
         for (let i = 0; i < phasesJson.length; i++) {
             let element = phasesJson[i];
             if (element.x == posX && element.y == posY) {
-                a = `exercise.html?phaseId=${element.id}`;
+                a = `exercise.html?phaseId=${element.id}&phaseName=${element.name}`;
                 i = phasesJson.length;
             } else {
                 a = '#';

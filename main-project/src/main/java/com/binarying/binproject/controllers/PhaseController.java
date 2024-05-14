@@ -6,9 +6,9 @@ import com.binarying.binproject.entities.Phase;
 import com.binarying.binproject.entities.World;
 import com.binarying.binproject.exceptions.PhaseNotFoundException;
 import com.binarying.binproject.exceptions.WorldNotFoundException;
-import com.binarying.binproject.repositories.PhaseMountedMap;
 import com.binarying.binproject.repositories.PhaseRepository;
 import com.binarying.binproject.repositories.WorldRepository;
+import com.binarying.binproject.service.PhaseService;
 
 import jakarta.validation.Valid;
 
@@ -32,12 +32,12 @@ public class PhaseController {
 
     private final WorldRepository worldRepository;
     private final PhaseRepository phaseRepository;
-    private final PhaseMountedMap phaseMountedMap;
+    private final PhaseService phaseService;
 
-    public PhaseController(PhaseRepository phaseRepository, WorldRepository worldRepository, PhaseMountedMap phaseMountedMap) {
+    public PhaseController(PhaseRepository phaseRepository, WorldRepository worldRepository, PhaseService phaseService) {
         this.phaseRepository = phaseRepository;
         this.worldRepository = worldRepository;
-        this.phaseMountedMap = phaseMountedMap;
+        this.phaseService = phaseService;
     }
 
     @GetMapping("")
@@ -109,6 +109,6 @@ public class PhaseController {
 
     @GetMapping("/arrayMap/{worldId}")
     public Integer[][] getMap(@PathVariable Integer worldId) {
-        return phaseMountedMap.getPhasesMap(worldId);
+        return phaseService.getPhasesMap(worldId);
     }
 }

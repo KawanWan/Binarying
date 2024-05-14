@@ -52,3 +52,10 @@
     font-size: 1.8em;
     color: #fff;
 }
+
+pre {
+    padding: 10px;
+    border-radius: 15px;
+    overflow-x: auto;
+    height: 100%;
+}

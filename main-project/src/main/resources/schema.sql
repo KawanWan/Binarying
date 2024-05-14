@@ -47,7 +47,8 @@ CREATE TABLE IF NOT EXISTS exercise (
     difficulty VARCHAR(20),
     question TEXT NOT NULL,
     answers TEXT NOT NULL,
-    correctAnswer TEXT NOT NULL,
+    correctAnswerIndex INT NOT NULL,
+    code_example TEXT, 
     phase_id INT,
     FOREIGN KEY (phase_id) REFERENCES phase(id)
 );

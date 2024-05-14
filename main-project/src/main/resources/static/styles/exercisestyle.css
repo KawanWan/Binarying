@@ -72,10 +72,9 @@ header {
 
 .figure {
     flex-grow: 1;
-    background-color: var(--light-color);
-    height: 45vh;
     max-width: 40vw;
     border-radius: 30px;
+    border: 5px solid var(--main-color);
 }
 
 .answers {

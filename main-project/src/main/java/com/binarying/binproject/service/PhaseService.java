@@ -1,17 +1,18 @@
-package com.binarying.binproject.repositories;
+package com.binarying.binproject.service;
 
 import java.util.List;
 
 import org.springframework.stereotype.Service;
 
 import com.binarying.binproject.entities.Phase;
+import com.binarying.binproject.repositories.PhaseRepository;
 
 @Service
-public class PhaseMountedMap {
+public class PhaseService {
     
     private final PhaseRepository phaseRepository;
 
-    public PhaseMountedMap(PhaseRepository phaseRepository) {
+    public PhaseService(PhaseRepository phaseRepository) {
         this.phaseRepository = phaseRepository;
     }
 

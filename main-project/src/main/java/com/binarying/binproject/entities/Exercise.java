@@ -12,9 +12,9 @@ public record Exercise(
         @Column("exercisetype")ExerciseType exerciseType,
         Difficulty difficulty,
         String question,
-        String[] answers,
-        @Column("correctanswer")String correctAnswer,
+        String answers,
+        @Column("correctAnswerIndex")Integer correctAnswerIndex,
+        @Column("code_example")String codeExample,
         @Column("phase_id") Integer phaseId
-
 ) {
 }
