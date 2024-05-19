@@ -1,77 +1,96 @@
 document.addEventListener("DOMContentLoaded", function () {
-    const header = document.querySelector('header');
-    const savedState = localStorage.getItem('headerState');
+    const content = document.querySelector('.content');
+    const contentText = document.querySelector('.content-text');
+    const buttons = document.querySelectorAll('.page-button');
 
-    if (savedState) {
-        header.innerHTML = savedState;
+    const pagesContent = {
+        1: {
+            title: "Se aprofunde em tecnologias de uma forma divertida e intuitiva!",
+            text: "Inscreva-se para receber atualizações e mais detalhes da plataforma",
+            buttons: [
+                { href: "#Inscreva-se", text: "Inscreva-se", class: "botao-branco" },
+                { href: "#InicieJa", text: "Inicie Já", class: "inicie-ja" }
+            ]
+        },
+        2: {
+            title: "Aprenda sobre as melhores tecnologias disponíveis!",
+            text: "Exercicios desenvolvidos por estudantes e profissionais experientes.",
+            buttons: [
+                { href: "#Tecnologias", text: "Ver Tecnologias", class: "botao-branco" },
+                { href: "#Contato", text: "Entre em Contato", class: "botao-branco" }
+            ]
+        },
+        3: {
+            title: "Junte-se à nossa comunidade de desenvolvedores!",
+            text: "Participe de fóruns e eventos para expandir seus conhecimentos.",
+            buttons: [
+                { href: "#Comunidade", text: "Nossa Comunidade", class: "botao-branco" },
+                { href: "#Eventos", text: "Próximos Eventos", class: "botao-branco" }
+            ]
+        }
+    };
+
+    function updateContent(pageContent) {
+        contentText.innerHTML = `
+            <h2><strong>${pageContent.title}</strong></h2>
+            <p>${pageContent.text}</p>
+            <div class="content-buttons">
+                ${pageContent.buttons.map(button => `
+                    <a href="${button.href}" class="link ${button.class}">
+                        <strong>${button.text}</strong>
+                    </a>
+                `).join('')}
+            </div>
+        `;
+
+        addDynamicButtonEvents();
     }
 
-    header.addEventListener('click', function (event) {
-        if (event.target.classList.contains('link')) {
-            event.preventDefault(); // Evita que o link redirecione
-            const linkText = event.target.innerText.trim();
-
-            if (linkText === 'Cursos') {
-                const newState = `
-                    <div class="header1">
-                        <h1>Cursos</h1>
-                        <img src="imgs/cursos.jpeg">
-                    </div>
-                    <div class="header2">
-                        <p>Descrição dos cursos...</p>
-                        
-                        <a href="#Inicio" class="link">Inicio</a>
-                        <a href="#SobreNós" class="link">Sobre Nós</a>
-                    </div>
-                `;
-
-                header.innerHTML = newState;
-                localStorage.setItem('headerState', newState);
-            } else if (linkText === 'Inicio') {
-                const newState = `
-                    <div class="header1">
-                        <h1>Binarying</h1>
-                        <img src="imgs/inicio-landing-page.jpeg">
-                    </div>
-                    <div class="header2">
-                        <p>
-                            Binarying é uma plataforma que promove o ensino voltado principalmente à prática de programação. Nossa
-                            proposta é ajudar estudantes a terem melhor entendimento das tecnologias que estão estudando ou desejam
-                            estudar, por meio de exercícios gamificados, que irão estimular e consolidar o entendimento.
+    function addDynamicButtonEvents() {
+        const newButtons = contentText.querySelectorAll('.content-buttons .link');
+        newButtons.forEach(newButton => {
+            newButton.addEventListener('click', function (event) {
+                if (this.textContent.trim() === "Ver Tecnologias") {
+                    content.innerHTML = `
+                    <div class="content-text">
+                        <p class="message-balloon">
+                            A plataforma Binarying foi
+                            pensada e desenvolvida para
+                            fornecer a você que pretende
+                            iniciar a jornada em programação
+                            e outras tecnologias, uma maneira
+                            diversificada e gamificada de estudar!
                         </p>
 
-                        <a href="#Cursos" class="link">Cursos</a>
-                        <a href="#SobreNós" class="link">Sobre Nós</a>
+                        <img src="imgs/Bin.svg" alt="">
+                    </div>
+
+                    <div class="main2">
+                        <h2>Veja algumas tecnologias</h2>
+                        <div>
+                            <a class="tecnologias">
+                                <img src="imgs/botao-java.png" alt="">
+                            </a>
+                            <a class="tecnologias">
+                                <img src="imgs/botao-html.png" alt="">
+                            </a>
+                        </div>
                     </div>
                 `;
+                }
+            });
+        });
+    }
 
-                header.innerHTML = newState;
-                localStorage.setItem('headerState', newState);
-            } else if (linkText === 'Sobre Nós') {
-                const newState = `
-                    <div class="header1">
-                        <h1>Binarying</h1>
-                        <img src="imgs/sobre-nos.jpeg">
-                    </div>
-                    <div class="header2">
-                        <p>
-                            Percebe-se a grande dificuldade que muitos estudantes têm de entender certos conceitos na programação, muitas vezes, por falta de prática consistente, com isso, surgiu a ideia do nosso projeto: Servir como ferramenta auxiliar de aprendizado para todos aqueles interessados em melhorar seu entendimento e aprimorar suas habilidades na programação.
-                        </p>
-                        <h2>Objetivos</h2>
-                        <p>
-                            Nosso projeto contribuirá para a melhor compreensão do que os estudantes precisam para melhor se engajarem em seu aprendizado. A ideia é enxergar a importância da integração do aprendizado e diversão para alcançar um melhor aproveitamento de estudo aos alunos. 
-                            <br>
-                            Por meio da prática constante e interface intuitiva, buscaremos pesquisar a melhor forma de tornar a prática na programação eficiente, utilizando aspectos de jogos como: Nível de experiência (EXP), Dificuldade e progressão dinâmica (Dificultar ou facilitar de acordo com o desempenho do estudante).
-                        </p>
-
-                        <a href="#Inicio" class="link">Inicio</a>
-                        <a href="#Cursos" class="link">Cursos</a>
-                    </div>
-                `;
-
-                header.innerHTML = newState;
-                localStorage.setItem('headerState', newState);
+    buttons.forEach(button => {
+        button.addEventListener('click', function () {
+            const page = this.getAttribute('data-page');
+            const content = pagesContent[page];
+            if (content) {
+                updateContent(content);
             }
-        }
+        });
     });
+
+    addDynamicButtonEvents();
 });

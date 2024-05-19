@@ -1,113 +1,272 @@
+body {
+    display: flex;
+    flex-direction: column;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    min-height: 100vh;
+}
+
 nav {
-    display: flex;
-    height: 10vh;
-    justify-content: space-between;
+    display: grid;
+    grid-template-columns: 1fr auto;
     align-items: center;
-    padding: 0.5vh;
-    padding-left: 2vh;
-    padding-right: 2vh;
+    padding: 0 2vh;
+    background-color: #FFFFFF;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    height: 15vh;
+    overflow-x: hidden;
+}
+
+.nav-div1 {
+    display: flex;
+    align-items: center;
+    gap: 1vh;
+}
+
+.nav-div1 h2 {
+    margin-left: 2vh;
+    color: #0060FF;
+}
+
+.nav-div2 {
+    min-width: 0;
+    display: flex;
+    align-items: center;
     gap: 5vh;
-
-    background-color: #0060FF;
-    color: #FFFFFF;
+    justify-self: end;
 }
 
-nav h2 {
-    display: inline;
+.nav-div2 a {
+    padding: 5px 20px;
+    text-decoration: none;
+    color: #1F2020;
 }
 
-header {
-    padding-left: 20vh;
-    padding-right: 20vh;
-    display: flex;
-    flex-direction: row;
-    align-items: center;
-    align-content: center;
-    justify-content: center;
-    text-align: center;
-    height: 90vh;
-
-    color: #FFFFFF;
-    background-color: #1f2020;
+.nav-div2 a:hover {
+    border-bottom: 2px solid #0060FF;
 }
 
-header h1 {
-    font-size: 7vw;
-    margin-bottom: 0;
-    padding-bottom: 0;
-}
-
-.header1 img {
-    height: 50vh;
-}
-
-.header2 {
-    padding-left: 20vh;
-}
-
-.header2 p {
-    margin-top: 0;
-    padding-top: 0;
-}
-
-.header2 a {
-    display: inline-block;
+.inicie-ja {
     padding: 5px 20px;
     text-decoration: none;
     background-color: #0060FF;
-    color: #FFFFFF;
-    border: 2px solid #FFFFFF;
+    color: #FFFFFF !important;
     border-radius: 20px;
-    margin-top: 5vh;
+}
+
+.inicie-ja:hover {
+    transform: scale(1.05);
 }
 
 main {
-    height: 80vh;
+    display: flex;
+    flex-direction: column;
+    flex-grow: 1;
+    justify-content: space-between;
+}
+
+.content {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    align-items: center;
+    gap: 20px;
+    text-align: left;
+    background-color: #FFFFFF;
+    color: #1F2020;
+    padding: 20px;
+    width: 100%;
+    box-sizing: border-box;
+}
+
+.content-text {
+    max-width: 80vh;
+    padding: 20px;
+}
+
+.content-text h2 {
+    font-size: 3rem;
+}
+
+.content-text p {
+    margin-top: 0.2rem;
+}
+
+.content-buttons {
+    display: flex;
+    gap: 25px;
+    justify-content: flex-start;
+    margin-top: 20px;
+}
+
+.botao-branco,
+.inicie-ja {
+    padding: 10px 20px;
+    text-decoration: none;
+    border-radius: 20px;
+    transition: transform 0.3s;
+}
+
+.botao-branco {
+    background-color: #FFFFFF;
+    color: #1F2020 !important;
+    border: 2px solid #1F2020;
+    text-align: center !important;
+}
+
+.botao-branco:hover,
+.inicie-ja:hover {
+    transform: scale(1.05);
+}
+
+.inicie-ja {
     background-color: #0060FF;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    align-content: center;
-    justify-content: center;
+    color: #FFFFFF !important;
 }
 
-main h2 {
+.main2 {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    max-width: 80vh;
+    padding: 20px;
+}
+
+.main2 div {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    max-width: 80vh;
+    padding: 20px;
+    margin-top: 2.rem;
+}
+
+.message-balloon {
+    background-color: #0060FF;
     color: #FFFFFF;
-    text-align: center;
-    font-size: 5vw;
+    padding: 10px 20px;
+    border-radius: 20px;
+    position: relative;
+    margin-top: 20px;
+    margin-left: 50px;
+    margin-bottom: 5vh;
 }
 
-main a {}
-
-#courses {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    align-content: center;
-    justify-content: center;
+.message-balloon::before {
+    content: "";
+    position: absolute;
+    bottom: -2.5vh;
+    left: 15%;
+    transform: translateX(100%) rotate(135deg);
+    width: 0;
+    height: 0;
+    border: 3vh solid transparent;
+    border-top-color: #0060FF;
 }
 
-#courses div {
-    margin-top: 10px;
+.tecnologias img{
+    width: 35vh;
+}
+
+.pages {
+    height: 20vh;
+    width: 100%;
     display: flex;
     flex-direction: row;
-    flex-wrap: wrap;
-    align-items: center;
     justify-content: center;
-    align-content: center;
-    width: 70vw;
+    margin-top: 20px;
+
+    background-color: #1F2020;
 }
 
-#courses div img {
-    width: 17.5vw;
+.page-button {
+    width: 90%;
+    max-width: 50vh;
+    padding: 20px;
+    font-size: 18px;
+    color: #FFFFFF;
+    background-color: #1F2020;
+    border: none;
+    cursor: pointer;
+    transition: background-color 0.3s, transform 0.3s;
+    will-change: transform;
+    transform-origin: bottom;
 }
 
-@media only screen and (max-width: 450px) {
-    header {
-        height: 60vh;
+.page-button:hover {
+    background-color: #0060FF;
+    transform: scaleY(1.05);
+}
+
+footer {
+    display: flex;
+    justify-content: center;
+    background-color: #1f2020;
+    color: #FFFFFF;
+    text-align: center;
+    padding: 10px 0;
+    bottom: 0;
+    height: 5vh;
+    width: 100%;
+    box-shadow: 0 -2px 4px rgba(0, 0, 0, 0.1);
+}
+
+
+
+@media (max-width: 768px) {
+    nav {
+        grid-template-columns: 1fr;
+        padding: 1vh;
+        gap: 1vh;
+        text-align: center;
     }
 
-    main {
-        height: 40vh;
+    .nav-div1,
+    .nav-div2 {
+        justify-content: center;
+        padding: 1vh 0;
+        width: 100%;
+    }
+
+    .nav-div1 img {
+        max-width: 50%;
+        height: auto;
+    }
+
+    .nav-div2 {
+        flex-direction: column;
+        gap: 1vh;
+    }
+
+    .content {
+        grid-template-columns: 1fr;
+        align-items: flex-start;
+        text-align: center;
+        padding: 10px;
+    }
+
+    .content-text {
+        max-width: 100%;
+        padding: 10px;
+    }
+
+    .content-text h2 {
+        font-size: 2rem;
+    }
+
+    .content-buttons {
+        flex-direction: column;
+        width: 100%;
+        align-items: center;
+    }
+
+    .botao-branco,
+    .inicie-ja {
+        width: 80%;
+        text-align: center;
+    }
+
+    .inicie-ja {
+        width: 80%;
     }
 }
