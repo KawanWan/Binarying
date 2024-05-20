@@ -1,6 +1,12 @@
 document.addEventListener("DOMContentLoaded", function () {
-    const content = document.querySelector('.content');
+    function updateURL(pageNumber) {
+        const url = new URL(window.location);
+        url.hash = `#page${pageNumber}`;
+        history.pushState(null, '', url);
+    }
+
     const contentText = document.querySelector('.content-text');
+    const main2 = document.querySelector('.main2');
     const buttons = document.querySelectorAll('.page-button');
 
     const pagesContent = {
@@ -16,7 +22,7 @@ document.addEventListener("DOMContentLoaded", function () {
             title: "Aprenda sobre as melhores tecnologias disponíveis!",
             text: "Exercicios desenvolvidos por estudantes e profissionais experientes.",
             buttons: [
-                { href: "#Tecnologias", text: "Ver Tecnologias", class: "botao-branco" },
+                { href: "#Tecnologias", text: "Ver Tecnologias", class: "botao-branco tecnologias" },
                 { href: "#Contato", text: "Entre em Contato", class: "botao-branco" }
             ]
         },
@@ -43,6 +49,8 @@ document.addEventListener("DOMContentLoaded", function () {
             </div>
         `;
 
+        main2.innerHTML = '';
+
         addDynamicButtonEvents();
     }
 
@@ -50,21 +58,23 @@ document.addEventListener("DOMContentLoaded", function () {
         const newButtons = contentText.querySelectorAll('.content-buttons .link');
         newButtons.forEach(newButton => {
             newButton.addEventListener('click', function (event) {
-                if (this.textContent.trim() === "Ver Tecnologias") {
-                    content.innerHTML = `
-                    <div class="content-text">
-                        <p class="message-balloon">
-                            A plataforma Binarying foi
-                            pensada e desenvolvida para
-                            fornecer a você que pretende
-                            iniciar a jornada em programação
-                            e outras tecnologias, uma maneira
-                            diversificada e gamificada de estudar!
-                        </p>
+                if (this.getAttribute('href') === '#Tecnologias') {
+                    contentText.innerHTML = `
+                        <div class="content-text">
+                            <p class="message-balloon">
+                                A plataforma Binarying foi
+                                pensada e desenvolvida para
+                                fornecer a você que pretende
+                                iniciar a jornada em programação
+                                e outras tecnologias, uma maneira
+                                diversificada e gamificada de estudar!
+                            </p>
 
-                        <img src="imgs/Bin.svg" alt="">
-                    </div>
+                            <img src="imgs/Bin.svg" alt="">
+                        </div>
+                    `;
 
+                    main2.innerHTML = `
                     <div class="main2">
                         <h2>Veja algumas tecnologias</h2>
                         <div>
@@ -84,13 +94,19 @@ document.addEventListener("DOMContentLoaded", function () {
 
     buttons.forEach(button => {
         button.addEventListener('click', function () {
+            buttons.forEach(btn => btn.classList.remove('active'));
+            this.classList.add('active');
             const page = this.getAttribute('data-page');
-            const content = pagesContent[page];
-            if (content) {
-                updateContent(content);
+            const pageContent = pagesContent[page];
+            if (pageContent) {
+                updateContent(pageContent);
             }
+
+            updateURL(page);
         });
     });
+
+    buttons[0].classList.add('active');
 
     addDynamicButtonEvents();
 });
