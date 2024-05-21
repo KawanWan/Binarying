@@ -1,5 +1,3 @@
-DROP TABLE IF EXISTS admin, student, universe, world, phase, exercise, student_progress;
-
 CREATE TABLE IF NOT EXISTS admin (
     id INT PRIMARY KEY,
     username VARCHAR(200) NOT NULL,
@@ -47,7 +45,7 @@ CREATE TABLE IF NOT EXISTS exercise (
     difficulty VARCHAR(20),
     question TEXT NOT NULL,
     answers TEXT NOT NULL,
-    correctAnswerIndex INT NOT NULL,
+    correct_answer_index INT NOT NULL,
     code_example TEXT, 
     phase_id INT,
     FOREIGN KEY (phase_id) REFERENCES phase(id)

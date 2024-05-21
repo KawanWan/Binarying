@@ -13,7 +13,7 @@ public record Exercise(
         Difficulty difficulty,
         String question,
         String answers,
-        @Column("correctAnswerIndex")Integer correctAnswerIndex,
+        Integer correctAnswerIndex,
         @Column("code_example")String codeExample,
         @Column("phase_id") Integer phaseId
 ) {

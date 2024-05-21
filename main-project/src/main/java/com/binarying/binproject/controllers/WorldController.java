@@ -67,23 +67,6 @@ public class WorldController {
     }
 
     @ResponseStatus(HttpStatus.NO_CONTENT)
-    @PutMapping("/setuniverse/{id}") // Example --> http://localhost:8080/api/world/setuniverse/{id}?universeId={universeId}
-    public void setUniverse(@PathVariable Integer id, @RequestParam Integer universeId) {
-
-        Optional<Universe> optUniverse = universeRepository.findById(universeId);
-        Optional<World> optWorld = worldRepository.findById(id);
-
-        if (optUniverse.isEmpty()) {
-            throw new UniverseNotFoundException();
-        }
-        if (optWorld.isEmpty()) {
-            throw new WorldNotFoundException();
-        }
-
-        worldRepository.setUniverseId(id, universeId);
-    }
-
-    @ResponseStatus(HttpStatus.NO_CONTENT)
     @DeleteMapping("/{id}")
     void delete(@PathVariable Integer id) {
         worldRepository.delete(worldRepository.findById(id).get());

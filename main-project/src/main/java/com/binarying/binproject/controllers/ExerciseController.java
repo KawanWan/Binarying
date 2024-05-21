@@ -40,11 +40,6 @@ public class ExerciseController {
         return exerciseRepository.findAll();
     }
 
-    @GetMapping("/random/{phaseId}")
-    List<Exercise> findByPhase(@PathVariable Integer phaseId) {
-        return exerciseService.getRandomExercises(phaseId);
-    }
-
     @GetMapping("/{id}")
     public Exercise findById(@PathVariable Integer id) {
         Optional<Exercise> exercise = exerciseRepository.findById(id);
@@ -54,12 +49,16 @@ public class ExerciseController {
         return exercise.get();
     }
 
-    @GetMapping("/random")  // Example ---> http://localhost:8080/api/exercise/random?concept={concept}&difficulty={difficulty}&limit={limit}
-    public List<Exercise> findRandomConceptDifficulty(@RequestParam String concept, @RequestParam String difficulty, @RequestParam Integer limit){
-        return exerciseRepository.findRandomConceptDifficulty(concept, difficulty, limit);
+    @GetMapping("/random")
+    public List<Exercise> findByConceptAndDifficulty(@RequestParam String concept, @RequestParam String difficulty, @RequestParam Integer limit){
+        return exerciseRepository.findByConceptAndDifficulty(concept, difficulty, limit);
+    }
+
+    @GetMapping("/random/{phaseId}")
+    List<Exercise> findByPhase(@PathVariable Integer phaseId) {
+        return exerciseService.getRandomExercises(phaseId);
     }
     
-
     @ResponseStatus(HttpStatus.CREATED)
     @PostMapping("")
     void create(@Valid @RequestBody Exercise exercise) {

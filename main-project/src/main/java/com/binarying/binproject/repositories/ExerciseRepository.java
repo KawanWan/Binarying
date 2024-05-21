@@ -12,5 +12,5 @@ public interface ExerciseRepository extends ListCrudRepository<Exercise, Integer
     List<Exercise> findByPhase(Integer phaseId);
 
     @Query("SELECT * FROM exercise WHERE difficulty = :difficulty AND concept = :concept ORDER BY RANDOM() LIMIT :limit;")
-    List<Exercise> findRandomConceptDifficulty(@Param("concept")String concept, @Param("difficulty")String difficulty, @Param("limit")int limit);
+    List<Exercise> findByConceptAndDifficulty(@Param("concept")String concept, @Param("difficulty")String difficulty, @Param("limit")int limit);
 }

@@ -12,7 +12,7 @@ VALUES ('Sintaxe Básica', 'Aprenda a base da linguagem', 'syntax', 'TRAINEE', 1
     ('Dados e Variáveis', 'Aprenda sobre os tipos de dados em java', 'data-types, variables', 'TRAINEE', 1,3 ,1),
     ('Condicionais', 'Aprenda sobre as estruturas de condição', 'conditional', 'TRAINEE', 3,3 ,1);
 
-INSERT INTO exercise(question, answers, correctAnswerIndex, code_example, phase_id)
+INSERT INTO exercise(question, answers, correct_answer_index, code_example, phase_id)
 VALUES ('O que este programa deve imprimir?', 'HELLO WORLD! | Hello World! | Hello, World! | HelloWorld', 3, 'public class HelloWorld {
                         public static void main(String[] args) {
                             System.out.println("Hello, World!");
@@ -83,5 +83,42 @@ VALUES ('O que este programa deve imprimir?', 'HELLO WORLD! | Hello World! | Hel
                         public static void main(String[] args) {
                             int x = 10;
                             System.out.println(x);
+                        }
+                    }', 1);
+
+INSERT INTO exercise(concept, difficulty, question, answers, correct_answer_index, code_example, phase_id)
+VALUES ('basic-syntax', 'TRAINEE', 'Qual é o erro no código a seguir?', 'Ponto e vírgula | Função main | O println | Aspas duplas na String', 0, 'public class HelloWorld {
+                        public static void main(String[] args) {
+                            System.out.println("Hello, World!")
+                        }
+                    }    ', 1),
+        ('variables', 'TRAINEE', 'Qual é o erro no código a seguir?', 'Variável não inicializada | Nome de variável inválido | Tipos de dados incompatíveis | Falta de ponto e vírgula', 3, 'public class Example {
+                        public static void main(String[] args) {
+                            int num = 5
+                        }
+                    }', 1),
+        ('loops', 'TRAINEE', 'O que está errado no loop for abaixo?', 'A condição de parada está incorreta | O incremento está incorreto | Falta ponto e vírgula na linha do loop | O corpo do loop está vazio', 2, 'public class LoopExample {
+                        public static void main(String[] args) {
+                            for (int i = 0; i < 10 i++) {
+                                System.out.println(i);
+                            }
+                        }
+                    }', 1),
+        ('conditionals', 'TRAINEE', 'Qual é o problema com o código if-else abaixo?', 'Falta de chaves | Falta de ponto e vírgula | Condição inválida | Nada está errado', 0, 'public class ConditionalExample {
+                        public static void main(String[] args) {
+                            int num = 10;
+                            if (num > 5)
+                                System.out.println("Maior que 5");
+                            else
+                                System.out.println("Menor ou igual a 5");
+                        }
+                    }', 1),
+        ('methods', 'TRAINEE', 'O que está faltando no método a seguir?', 'Parâmetros | Retorno | Corpo do método | Modificador de acesso', 3, 'public class MethodExample {
+                        public static void main(String[] args) {
+                            printMessage();
+                        }
+                        
+                        void printMessage() {
+                            System.out.println("Hello, World!");
                         }
                     }', 1);
