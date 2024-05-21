@@ -13,7 +13,7 @@ VALUES ('Sintaxe Básica', 'Aprenda a base da linguagem', 'syntax', 'TRAINEE', 1
     ('Condicionais', 'Aprenda sobre as estruturas de condição', 'conditional', 'TRAINEE', 3,3 ,1);
 
 INSERT INTO exercise(question, answers, correct_answer_index, code_example, phase_id)
-VALUES ('O que este programa deve imprimir?', 'HELLO WORLD! | Hello World! | Hello, World! | HelloWorld', 3, 'public class HelloWorld {
+VALUES ('O que este programa deve imprimir?', 'HELLO WORLD! | Hello World! | Hello, World! | HelloWorld', 2, 'public class HelloWorld {
                         public static void main(String[] args) {
                             System.out.println("Hello, World!");
                         }
@@ -25,7 +25,7 @@ VALUES ('O que este programa deve imprimir?', 'HELLO WORLD! | Hello World! | Hel
                             System.out.println(a + b);
                         }
                     }', 1),
-        ('O que será impresso na tela?', '2.0 | 2 | 2.5 | 3.0', 0, 'public class Main {
+        ('O que será impresso na tela?', '2.0 | 2 | 2.5 | 3.0', 2, 'public class Main {
                         public static void main(String[] args) {
                             double a = 5;
                             double b = 2;

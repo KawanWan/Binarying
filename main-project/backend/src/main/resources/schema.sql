@@ -1,3 +1,5 @@
+DROP TABLE IF EXISTS admin, student, universe, world, phase, exercise, student_progress;
+
 CREATE TABLE IF NOT EXISTS admin (
     id INT PRIMARY KEY,
     username VARCHAR(200) NOT NULL,
