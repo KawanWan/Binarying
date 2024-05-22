@@ -7,10 +7,16 @@ CREATE TABLE IF NOT EXISTS admin (
 );
 
 CREATE TABLE IF NOT EXISTS student (
-    id INT PRIMARY KEY,
+    id SERIAL PRIMARY KEY,
     username VARCHAR(200) NOT NULL,
-    password VARCHAR(64) NOT NULL
+    password VARCHAR(64) NOT NULL,
+    exp INT DEFAULT 0,
+    life INT DEFAULT 5,
+    isAdventure BOOLEAN NOT NULL,
+    difficulty VARCHAR(20) NOT NULL,
+    progress INT[] DEFAULT '{}'
 );
+
 
 CREATE TABLE IF NOT EXISTS universe (
     id SERIAL PRIMARY KEY NOT NULL,

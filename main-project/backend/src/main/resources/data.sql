@@ -122,3 +122,6 @@ VALUES ('basic-syntax', 'TRAINEE', 'Qual é o erro no código a seguir?', 'Ponto
                             System.out.println("Hello, World!");
                         }
                     }', 1);
+
+INSERT INTO student (username, password, isAdventure, difficulty) 
+VALUES ('example_username', 'example_password', true, 'TRAINEE');
