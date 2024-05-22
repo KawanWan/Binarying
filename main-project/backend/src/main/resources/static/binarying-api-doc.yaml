@@ -1,0 +1,704 @@
+openapi: 3.0.3
+info:
+  title: Binarying
+  description: |-
+    Mapa dos endpoints da API do projeto Binarying
+    
+    Projeto:
+    - [Repositório](https://github.com/KawanWan/Binarying)
+  version: 0.9.0
+  
+servers:
+  - url: http://localhost:8080/api
+tags:
+  - name: universe
+    description: Acesso aos universos da plataforma
+  - name: world
+    description: Acesso aos mundos existentes
+  - name: phase
+    description: Acesso as fases e suas propriedades
+  - name: exercise
+    description: Acesso aos exercícios e suas informações
+paths:
+  /universe:
+    get:
+      tags:
+        - universe
+      summary: Retorna todos os universos
+      description: Ordenados por id
+      responses:
+        '200':
+          description: Requisição bem-sucedida
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/Universe'
+        '400':
+          description: Erro ao acessar
+    post:
+      tags:
+        - universe
+      summary: Adiciona um novo universo ao banco
+      description: O id não precisa ser inserido. Caso seja, há risco de colidir com outro registro no banco de mesmo id
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema: 
+              $ref: '#/components/schemas/Universe'
+      responses:
+        '201':
+          description: Universo criado com sucesso
+        '400':
+          description: Requisição inválida
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  mensagem:
+                    type: string
+                    example: "Erro na requisição"
+  /universe/{id}:
+    get:
+      tags:
+        - universe
+      summary: Retorna o universo com o id especificado
+      parameters:
+        - name: id
+          in: path
+          required: true
+          schema:
+            type: integer
+      responses:
+        '200':
+          description: Requisição bem-sucedida
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Universe'
+    put:
+      tags:
+        - universe
+      summary: Atualiza um universo existente
+      description: Endpoint para atualizar um universo existente pelo ID
+      parameters:
+        - name: id
+          in: path
+          required: true
+          description: ID do universo a ser atualizado
+          schema:
+            type: integer
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                name:
+                  type: string
+                  example: "C++"
+                description:
+                  type: string
+                  example: "Aprenda C++!"
+                coolors:
+                  type: array
+                  items:
+                    type: string
+                    example:
+                      0: "#fff"
+                      1: "#5382a1"
+                icon:
+                  type: string
+                  example: "fa-brands fa-cpp"
+      responses:
+        '201':
+          description: Universo atualizado com sucesso
+        '400':
+          description: Requisição inválida
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  mensagem:
+                    type: string
+                    example: "Erro na requisição"
+    delete:
+      tags:
+        - universe
+      summary: Apaga um universo do banco de dados pelo id
+      parameters:
+        - name: id
+          in: path
+          required: true
+          description: ID do universo a ser apagado
+          schema:
+            type: integer
+      responses:
+        '201':
+          description: Universo apagado com sucesso
+        '400':
+          description: Requisição inválida
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  mensagem:
+                    type: string
+                    example: "Erro na requisição"
+  /world:
+    get:
+      tags:
+        - world
+      summary: Retorna todos os Mundos
+      description: Com o parâmetro "universeId", será retornado apenas os mundos do universo especificado
+      parameters:
+        - name: universeId
+          in: query
+          required: false
+          schema:
+            type: integer
+      responses:
+        '200':
+          description: Requisição bem-sucedida
+          content:
+            application/json:
+              schema:
+                type: array
+                items: 
+                  $ref: '#/components/schemas/World'
+    post:
+      tags:
+        - world
+      summary: Adiciona um novo mundo ao banco
+      description: O id não precisa ser inserido. Caso seja, há risco de colidir com outro registro no banco de mesmo id
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema: 
+              $ref: '#/components/schemas/World'
+      responses:
+        '201':
+          description: Mundo criado com sucesso
+        '400':
+          description: Requisição inválida
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  mensagem:
+                    type: string
+                    example: "Erro na requisição"
+  /world/{id}:
+    get:
+      tags:
+        - world
+      summary: Retorna o mundo pelo id especificado
+      parameters:
+        - name: id
+          in: path
+          required: true
+          schema:
+            type: integer
+      responses:
+        '200':
+          description: successful operation
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/World'
+    put:
+      tags:
+        - world
+      summary: Atualiza um mundo existente
+      parameters:
+        - name: id
+          in: path
+          required: true
+          description: ID do mundo a ser atualizado
+          schema:
+            type: integer
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                name:
+                  type: string
+                  example: "Hello, Java!"
+                description:
+                  type: string
+                  example: "Aprenda a sintaxe básica da linguagem java!"
+                universeid:
+                  type: integer
+                  example: 1
+    
+      responses:
+        '201':
+          description: Mundo atualizado com sucesso
+        '400':
+          description: Requisição inválida
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  mensagem:
+                    type: string
+                    example: "Erro na requisição"
+    delete:
+      tags:
+        - world
+      summary: Apaga um mundo do banco de dados pelo id
+      parameters:
+        - name: id
+          in: path
+          required: true
+          description: ID do mundo a ser apagado
+          schema:
+            type: integer
+      responses:
+        '201':
+          description: Mundo apagado com sucesso
+        '400':
+          description: Requisição inválida
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  mensagem:
+                    type: string
+                    example: "Erro na requisição"
+  /phase:
+    get:
+      tags:
+        - phase
+      summary: Retorna todas as fases.
+      description: Com o parâmetro "worldId", retorna pelo mundo pertencente. A dificuldade pode ser "TRAINEE, JUNIOR, PLENO, SENIOR". Os atríbutos x e y são coordenadas.
+      parameters:
+        - name: worldId
+          in: query
+          required: false
+          schema:
+            type: integer
+      responses:
+        '200':
+          description: successful operation
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/Phase'
+    post:
+      tags:
+        - phase
+      summary: Adiciona uma nova fase ao banco
+      description: O id não precisa ser inserido. Caso seja, há risco de colidir com outro registro no banco de mesmo id
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema: 
+              $ref: '#/components/schemas/Phase'
+      responses:
+        '201':
+          description: Fase criada com sucesso
+        '400':
+          description: Requisição inválida
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  mensagem:
+                    type: string
+                    example: "Erro na requisição"
+  /phase/{id}:
+    get:
+      tags:
+        - phase
+      summary: Retorna a fase pelo id especificado
+      parameters:
+        - name: id
+          in: path
+          required: true
+          schema:
+            type: integer
+      responses:
+        '200':
+          description: successful operation
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Phase'
+    put:
+      tags:
+        - phase
+      summary: Atualiza uma fase existente
+      parameters:
+        - name: id
+          in: path
+          required: true
+          description: ID da fase a ser atualizada
+          schema:
+            type: integer
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                name:
+                  type: string
+                  example: "Sintaxe Básica"
+                description:
+                  type: string
+                  example: "Aprenda a base da linguagem"
+                concept:
+                  type: string
+                  example: "syntax, fundamentals"
+                difficulty:
+                  type: string
+                  example: "TRAINEE"
+                x:
+                  type: integer
+                  example: 1
+                y:
+                  type: integer
+                  example: 1
+                worldId:
+                  type: integer
+                  example: 1
+      responses:
+        '201':
+          description: Fase atualizada com sucesso
+        '400':
+          description: Requisição inválida
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  mensagem:
+                    type: string
+                    example: "Erro na requisição"
+    delete:
+      tags:
+        - phase
+      summary: Apaga uma fase do banco de dados pelo id
+      parameters:
+        - name: id
+          in: path
+          required: true
+          description: ID da fase a ser apagada
+          schema:
+            type: integer
+      responses:
+        '201':
+          description: Fase apagada com sucesso
+        '400':
+          description: Requisição inválida
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  mensagem:
+                    type: string
+                    example: "Erro na requisição"
+  /phase/arrayMap/{worldId}:
+    get:
+      tags:
+        - phase
+      summary: Retorna o vetor referente ao mapa das fases
+      parameters:
+        - name: worldId
+          in: path
+          required: true
+          schema:
+            type: integer
+      responses:
+        '200':
+          description: successful operation
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  type: array
+                  items:
+                    type: integer
+                example: 
+                  - [1, 1, 1, 1]
+                  - [1, 3, 1, 3]
+                  - [1, 1, 1, 1]
+                  - [0, 0, 1, 3]
+                       
+  /exercise:
+    get:
+        tags:
+          - exercise
+        summary: Retorna todos os exercícios.
+        responses:
+          '200':
+            description: successful operation
+            content:
+              application/json:
+                schema:
+                  type: array
+                  items:
+                    $ref: '#/components/schemas/Exercise'
+    post:
+      tags:
+        - exercise
+      summary: Adiciona um novo exercicio ao banco
+      description: O id não precisa ser inserido. Caso seja, há risco de colidir com outro registro no banco de mesmo id. O exercicio pode conter múltiplos conceitos separados por vírgula
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema: 
+              $ref: '#/components/schemas/Exercise'
+      responses:
+        '201':
+          description: Exercicio criado com sucesso
+        '400':
+          description: Requisição inválida
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  mensagem:
+                    type: string
+                    example: "Erro na requisição"
+    
+  /exercise/{id}:
+    get:
+      tags:
+        - exercise
+      summary: Retorna o exercicio pelo id especificado
+      parameters:
+        - name: id
+          in: path
+          required: true
+          schema:
+            type: integer
+      responses:
+        '200':
+          description: successful operation
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Exercise'
+    put:
+      tags:
+        - exercise
+      summary: Atualiza um exercicio existente
+      parameters:
+        - name: id
+          in: path
+          required: true
+          description: ID do exercicio a ser atualizado
+          schema:
+            type: integer
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                concept:
+                  type: string
+                  example: "syntax, fundamentals"
+                exerciseType:
+                  type: string
+                  example: "logical"
+                difficulty:
+                  type: string
+                  example: "TRAINEE"
+                question:
+                  type: string
+                  example: "O que este programa deve imprimir?"
+                answers:
+                  type: string
+                  example: "HELLO WORLD! | Hello World! | Hello, World! | HelloWorld"
+                correctAnswerIndex:
+                  type: integer
+                  example: 3
+                codeExample:
+                  type: string
+                  example: 'public class HelloWorld {\n                        public static void main(String[] args) {\n                            System.out.println("Hello, World!");\n                        }\n                    }    '
+                phaseId:
+                  type: integer
+                  example: 1
+      responses:
+        '201':
+          description: Exercicio atualizado com sucesso
+        '400':
+          description: Requisição inválida
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  mensagem:
+                    type: string
+                    example: "Erro na requisição"
+    delete:
+      tags:
+        - exercise
+      summary: Apaga um exercicio do banco de dados pelo id
+      parameters:
+        - name: id
+          in: path
+          required: true
+          description: ID do exercicio a ser apagado
+          schema:
+            type: integer
+      responses:
+        '201':
+          description: Exercicio apagado com sucesso
+        '400':
+          description: Requisição inválida
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  mensagem:
+                    type: string
+                    example: "Erro na requisição"
+  /exercise/random/{phaseId}:
+    get:
+        tags:
+          - exercise
+        summary: Retorna 10 exercícios aleatórios da fase especificada.
+        parameters:
+          - name: phaseId
+            in: path
+            required: true
+            schema:
+              type: integer
+        responses:
+          '200':
+            description: successful operation
+            content:
+              application/json:
+                schema:
+                  type: array
+                  items:
+                    $ref: '#/components/schemas/Exercise'
+components:
+  schemas:
+    Universe:
+      type: object
+      properties:
+        id:
+          type: integer
+          format: int64
+          example: 1
+        name:
+          type: string
+          example: "Java"
+        description:
+          type: string
+          example: "Aprenda java e conceitos de orientação a objetos!"
+        coolors:
+          type: array
+          items:
+            type: string
+            example:
+              0: "#fff"
+              1: "#5382a1"
+        icon:
+          type: string
+          example: "fa-brands fa-java"
+    World:
+      type: object
+      properties:
+        id:
+          type: integer
+          format: int64
+          example: 1
+        name:
+          type: string
+          example: "Hello, Java!"
+        description:
+          type: string
+          example: "Aprenda a sintaxe básica da linguagem java!"
+        universeid:
+          type: integer
+          example: 1
+    Phase:
+      type: object
+      properties:
+        id: 
+          type: integer
+          format: int64
+          example: 1
+        name:
+          type: string
+          example: "Sintaxe Básica"
+        description:
+          type: string
+          example: "Aprenda a base da linguagem"
+        concept:
+          type: string
+          example: "syntax, fundamentals"
+        difficulty:
+          type: string
+          example: "TRAINEE"
+        x:
+          type: integer
+          example: 1
+        y:
+          type: integer
+          example: 1
+        worldId:
+          type: integer
+          example: 1
+    Exercise:
+      type: object
+      properties:
+        id:
+          type: integer
+          format: int64
+          example: 1
+        concept:
+          type: string
+          example: "syntax, fundamentals"
+        exerciseType:
+          type: string
+          example: "logical"
+        difficulty:
+          type: string
+          example: "TRAINEE"
+        question:
+          type: string
+          example: "O que este programa deve imprimir?"
+        answers:
+          type: string
+          example: "HELLO WORLD! | Hello World! | Hello, World! | HelloWorld"
+        correctAnswerIndex:
+          type: integer
+          example: 3
+        codeExample:
+          type: string
+          example: 'public class HelloWorld {\n                        public static void main(String[] args) {\n                            System.out.println("Hello, World!");\n                        }\n                    }    '
+        phaseId:
+          type: integer
+          example: 1
