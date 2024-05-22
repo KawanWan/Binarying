@@ -14,8 +14,9 @@ import org.springframework.web.bind.annotation.ResponseStatus;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.binarying.binproject.entities.Universe;
-import com.binarying.binproject.exceptions.UniverseNotFoundException;
 import com.binarying.binproject.repositories.UniverseRepository;
+import com.binarying.binproject.service.exceptions.UniverseNotFoundException;
+
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
@@ -60,6 +61,10 @@ public class UniverseController {
     @ResponseStatus(HttpStatus.NO_CONTENT)
     @DeleteMapping("/{id}")
     void delete(@PathVariable Integer id) {
+        Optional<Universe> universe = universeRepository.findById(id);
+        if (universe.isEmpty()) {
+            throw new UniverseNotFoundException();
+        }
         universeRepository.delete(universeRepository.findById(id).get());
 
     }

@@ -4,11 +4,11 @@ import org.springframework.web.bind.annotation.RestController;
 
 import com.binarying.binproject.entities.Phase;
 import com.binarying.binproject.entities.World;
-import com.binarying.binproject.exceptions.PhaseNotFoundException;
-import com.binarying.binproject.exceptions.WorldNotFoundException;
 import com.binarying.binproject.repositories.PhaseRepository;
 import com.binarying.binproject.repositories.WorldRepository;
 import com.binarying.binproject.service.PhaseService;
+import com.binarying.binproject.service.exceptions.PhaseNotFoundException;
+import com.binarying.binproject.service.exceptions.WorldNotFoundException;
 
 import jakarta.validation.Valid;
 
@@ -104,6 +104,10 @@ public class PhaseController {
     @ResponseStatus(HttpStatus.NO_CONTENT)
     @DeleteMapping("/{id}")
     void delete(@PathVariable Integer id) {
+        Optional<Phase> optPhase = phaseRepository.findById(id);
+        if (optPhase.isEmpty()) {
+            throw new PhaseNotFoundException();
+        }
         phaseRepository.delete(phaseRepository.findById(id).get());
     }
 

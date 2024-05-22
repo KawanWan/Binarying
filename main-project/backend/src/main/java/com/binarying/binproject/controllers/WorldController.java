@@ -16,10 +16,10 @@ import org.springframework.web.bind.annotation.RestController;
 
 import com.binarying.binproject.entities.Universe;
 import com.binarying.binproject.entities.World;
-import com.binarying.binproject.exceptions.UniverseNotFoundException;
-import com.binarying.binproject.exceptions.WorldNotFoundException;
 import com.binarying.binproject.repositories.UniverseRepository;
 import com.binarying.binproject.repositories.WorldRepository;
+import com.binarying.binproject.service.exceptions.UniverseNotFoundException;
+import com.binarying.binproject.service.exceptions.WorldNotFoundException;
 
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.PutMapping;
@@ -69,6 +69,10 @@ public class WorldController {
     @ResponseStatus(HttpStatus.NO_CONTENT)
     @DeleteMapping("/{id}")
     void delete(@PathVariable Integer id) {
+        Optional<World> world = worldRepository.findById(id);
+        if (world.isEmpty()) {
+            throw new WorldNotFoundException();
+        }
         worldRepository.delete(worldRepository.findById(id).get());
     }
 }

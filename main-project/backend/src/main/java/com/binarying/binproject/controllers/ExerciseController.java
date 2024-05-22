@@ -15,9 +15,9 @@ import org.springframework.web.bind.annotation.ResponseStatus;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.binarying.binproject.entities.Exercise;
-import com.binarying.binproject.exceptions.ExerciseNotFoundException;
 import com.binarying.binproject.repositories.ExerciseRepository;
 import com.binarying.binproject.service.ExerciseService;
+import com.binarying.binproject.service.exceptions.ExerciseNotFoundException;
 
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.PutMapping;
@@ -74,6 +74,10 @@ public class ExerciseController {
     @ResponseStatus(HttpStatus.NO_CONTENT)
     @DeleteMapping("/{id}")
     void delete(@PathVariable Integer id) {
+        Optional<Exercise> exercise = exerciseRepository.findById(id);
+        if (exercise.isEmpty()) {
+            throw new ExerciseNotFoundException();
+        }
         exerciseRepository.delete(exerciseRepository.findById(id).get());
 
     }
