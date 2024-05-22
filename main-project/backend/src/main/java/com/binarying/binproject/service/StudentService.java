@@ -1,20 +1,27 @@
 package com.binarying.binproject.service;
 
+import java.util.Optional;
+
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
+import com.binarying.binproject.entities.Phase;
 import com.binarying.binproject.entities.Student;
+import com.binarying.binproject.repositories.PhaseRepository;
 import com.binarying.binproject.repositories.StudentRepository;
 import com.binarying.binproject.service.exceptions.PhaseAlreadyAddedException;
+import com.binarying.binproject.service.exceptions.PhaseNotFoundException;
 import com.binarying.binproject.service.exceptions.StudentNotFoundException;
 
 @Service
 public class StudentService {
 
     private final StudentRepository studentRepository;
+    private final PhaseRepository phaseRepository;
 
-    public StudentService(StudentRepository studentRepository) {
+    public StudentService(StudentRepository studentRepository, PhaseRepository phaseRepository) {
         this.studentRepository = studentRepository;
+        this.phaseRepository = phaseRepository;
     }
 
     @Transactional
@@ -47,6 +54,11 @@ public class StudentService {
 
     @Transactional
     public void addProgress(Integer studentId, int newProgress) {
+        Optional<Phase> optPhase = phaseRepository.findById(newProgress);
+        if (optPhase.isEmpty()) {
+            throw new PhaseNotFoundException();
+        }
+        
         Student student = studentRepository.findById(studentId)
                 .orElseThrow(() -> new StudentNotFoundException());
 
