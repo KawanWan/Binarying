@@ -9,7 +9,7 @@ function load() {
     document.title = title;
     document.querySelector('#universe-name').innerHTML = title;
 
-    const url = 'http://localhost:8080/api/world?universeId=' + urlParams.get('universe_id');
+    const url = 'https://binarying-binarying.azuremicroservices.io/api/world?universeId=' + urlParams.get('universe_id');
     fetch(url).then(response => response.json())
         .then(json => loadWorlds(json))
 }

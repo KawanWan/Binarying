@@ -25,7 +25,7 @@ function load() {
     document.title = title;
     document.querySelector('#title').innerHTML = title;
     
-    fetch(`http://localhost:8080/api/phase/arrayMap/${worldId}`)
+    fetch(`https://binarying-binarying.azuremicroservices.io/api/phase/arrayMap/${worldId}`)
         .then(response => response.json())
         .then(json => loadPhases(json))
 }
@@ -36,7 +36,7 @@ function onMouseMove(event) {
 }
 
 function loadPhases(arrayMap) {
-    fetch(`http://localhost:8080/api/phase?worldId=${worldId}`)
+    fetch(`https://binarying-binarying.azuremicroservices.io/api/phase?worldId=${worldId}`)
             .then(response => response.json())
             .then(data => fill(arrayMap, data));
     // define div lenght

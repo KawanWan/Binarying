@@ -18,6 +18,17 @@
             "mainClass": "com.binarying.binproject.Application",
             "projectName": "back-end",
             "args": "",
+            "envFile": "${workspaceFolder}/.env",
+            "vmArgs": " -Dcom.sun.management.jmxremote -Dcom.sun.management.jmxremote.port=63621 -Dcom.sun.management.jmxremote.authenticate=false -Dcom.sun.management.jmxremote.ssl=false -Dspring.jmx.enabled=true -Djava.rmi.server.hostname=localhost -Dspring.application.admin.enabled=true -Dspring.boot.project.name=back-end"
+        },
+        {
+            "type": "java",
+            "name": "Spring Boot-BinfrontApplication<binfront>",
+            "request": "launch",
+            "cwd": "${workspaceFolder}",
+            "mainClass": "com.binarying.binfront.BinfrontApplication",
+            "projectName": "binfront",
+            "args": "",
             "envFile": "${workspaceFolder}/.env"
         }
     ]
