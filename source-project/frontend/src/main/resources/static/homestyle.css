@@ -1,0 +1,103 @@
+header {
+    display: flex;
+    align-items: center;
+    align-content: center;
+    justify-content: center;
+    flex-direction: column;
+    height: 90vh;
+    color: white;
+    background-color: var(--dark-color);
+}
+
+h1 {
+    font-size: 7vw;
+    margin-bottom: 0;
+    padding-bottom: 0;
+}
+
+p {
+    margin-top: 0;
+    padding-top: 0;
+}
+
+main {
+    height: 80vh;
+    background-color: var(--main-color);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    align-content: center;
+    justify-content: center;
+}
+
+main h2 {
+    color: white;
+    text-align: center;
+    font-size: 5vw;
+}
+
+#courses {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    align-content: center;
+    justify-content: center;
+}
+
+.universe-list {
+    margin-top: 10px;
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 18px;
+    align-items: center;
+    justify-content: center;
+    align-content: center;
+    width: 70vw;
+}
+
+.universe {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    max-width: 300px;
+    padding: 15px;
+    border-radius: 2em;
+    background-color: var(--light-color);
+    cursor: pointer;
+    text-align: center;
+}
+
+.icon {
+    display: flex;
+    background-color: var(--color-theme);
+    min-width: 92px;
+    min-height: 92px;
+    width: 92px;
+    height: 92px;
+    justify-content: center;
+    align-items: center;
+    border-radius: 50%;
+}
+
+.icon i {
+    font-size: 3em;
+    font-weight: bold;
+    color: var(--color-icon);
+}
+
+.universe .name {
+    color: var(--dark-color);
+    font-size: 2em;
+    font-weight: bold;
+    margin-left: 5%;
+}
+
+@media only screen and (max-width: 400px) {
+    header {
+        height: 60vh;
+    }
+
+    main {
+        height: 40vh;
+    }
+}

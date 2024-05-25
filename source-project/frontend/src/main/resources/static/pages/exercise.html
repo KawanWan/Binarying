@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <link rel="stylesheet" href="../style.css">
+    <link rel="stylesheet" href="../styles/exercisestyle.css">
+    <link rel="stylesheet" href="../styles/prism.css">
+
+    <title>Fase</title>
+    
+    <script src="../script.js"></script>
+    <script src="https://kit.fontawesome.com/3193c6a02e.js" crossorigin="anonymous"></script>
+</head>
+
+<body>
+    <header>
+        <div class="back-button">
+            <button onclick="back()">
+                <i class="fa-solid fa-arrow-left"></i>
+            </button>
+        </div>
+        <div class="progress-bar" style="--width: 0"></div>
+        <h1 id="question">Aqui fica a pergunta deste exercicio.</h1>
+        <div id="user-life">
+            <i class="fa-solid fa-heart"></i>
+            <p>5</p>
+        </div>
+    </header>
+
+    <main id="content">
+        <section class="figure">
+            
+        </section>
+
+        <section class="answers">
+            <button>Alternativa 1</button>
+            <button>Alternativa 2</button>
+            <button>Alternativa 3</button>
+            <button>Alternativa 4</button>
+        </section>
+    </main>
+    <script src="../scripts/exercises.js"></script>
+    <script src="../scripts/prism.js"></script>
+</body>
+
+</html>

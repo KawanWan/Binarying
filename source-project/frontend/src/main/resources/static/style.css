@@ -1,0 +1,61 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+
+:root {
+    --main-color: #0060FF;
+    --dark-color: #1f2020;
+    --light-color: #D9D9D9;
+    --contrast: #E71D36;
+    --extra: #62AB37;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    border: 0;
+    font-family: "Poppins", sans-serif;
+    text-decoration: none;
+}
+
+.no-select {
+    -webkit-user-select: none; /* Safari */
+    -moz-user-select: none; /* Firefox */
+    -ms-user-select: none; /* IE10+/Edge */
+    user-select: none; /* Padrão */
+}
+
+.back-button {
+    position: absolute;
+    left: 15px;
+    top: 15px;
+}
+
+.back-button button {
+    display: flex;
+    grid-area: back;
+    color: #FFFFFF;
+    text-decoration: none;
+    background-color: transparent;
+    border-radius: 50%;
+    width: 64px;
+    height: 64px;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+}
+
+.back-button button:hover {
+    background-color: var(--main-color);
+}
+
+.back-button button i {
+    align-self: center;
+    font-size: 1.8em;
+    color: #fff;
+}
+
+pre {
+    padding: 10px;
+    border-radius: 15px;
+    overflow-x: auto;
+    height: 100%;
+}
