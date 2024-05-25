@@ -9,7 +9,7 @@ info:
   version: 0.9.0
   
 servers:
-  - url: http://localhost:8080/api
+  - url: https://binarying-binarying.azuremicroservices.io/api
 tags:
   - name: universe
     description: Acesso aos universos da plataforma
