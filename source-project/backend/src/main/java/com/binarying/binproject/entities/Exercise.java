@@ -9,12 +9,13 @@ import com.binarying.binproject.entities.enumerations.ExerciseType;
 public record Exercise(
         @Id Integer id,
         String concept,
-        @Column("exercisetype")ExerciseType exerciseType,
+        @Column("exercise_type")
+        ExerciseType exerciseType,
         Difficulty difficulty,
         String question,
         String answers,
+        @Column("correct_answer_index")
         Integer correctAnswerIndex,
-        @Column("code_example")String codeExample,
-        @Column("phase_id") Integer phaseId
-) {
-}
+        @Column("code-example")
+        String codeExample
+) {}

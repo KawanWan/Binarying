@@ -49,14 +49,12 @@ CREATE TABLE phase (
 CREATE TABLE exercise (
     id SERIAL PRIMARY KEY,
     concept VARCHAR(50),
-    exerciseType VARCHAR(30),
+    exercise_type VARCHAR(30),
     difficulty VARCHAR(20),
     question TEXT NOT NULL,
     answers TEXT NOT NULL,
     correct_answer_index INT NOT NULL,
-    code_example TEXT, 
-    phase_id INT,
-    FOREIGN KEY (phase_id) REFERENCES phase(id)
+    code_example TEXT
 );
 
 CREATE TABLE student_progress (

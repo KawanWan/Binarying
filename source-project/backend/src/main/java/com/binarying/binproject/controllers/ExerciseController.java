@@ -16,7 +16,8 @@ import org.springframework.web.bind.annotation.RestController;
 
 import com.binarying.binproject.entities.Exercise;
 import com.binarying.binproject.repositories.ExerciseRepository;
-import com.binarying.binproject.service.ExerciseService;
+import com.binarying.binproject.repositories.ExerciseRepositoryCustom;
+import com.binarying.binproject.repositories.IExerciseRepositoryCustom;
 import com.binarying.binproject.service.exceptions.ExerciseNotFoundException;
 
 import org.springframework.web.bind.annotation.PostMapping;
@@ -28,11 +29,11 @@ import org.springframework.web.bind.annotation.RequestBody;
 public class ExerciseController {
 
     private final ExerciseRepository exerciseRepository;
-    private final ExerciseService exerciseService;
+    private final IExerciseRepositoryCustom exerciseRepositoryCustom;
 
-    public ExerciseController(ExerciseRepository exerciseRepository, ExerciseService exerciseService) {
+    public ExerciseController(ExerciseRepository exerciseRepository, ExerciseRepositoryCustom exerciseRepositoryCustom) {
         this.exerciseRepository = exerciseRepository;
-        this.exerciseService = exerciseService;
+        this.exerciseRepositoryCustom = exerciseRepositoryCustom;
     }
 
     @GetMapping("")
@@ -50,13 +51,8 @@ public class ExerciseController {
     }
 
     @GetMapping("/random")
-    public List<Exercise> findByConceptAndDifficulty(@RequestParam String concept, @RequestParam String difficulty, @RequestParam Integer limit){
-        return exerciseRepository.findByConceptAndDifficulty(concept, difficulty, limit);
-    }
-
-    @GetMapping("/random/{phaseId}")
-    List<Exercise> findByPhase(@PathVariable Integer phaseId) {
-        return exerciseService.getRandomExercises(phaseId);
+    public List<Exercise> findByConceptAndDifficulty(@RequestParam(required = false) String concept, @RequestParam(required = false) String difficulty, @RequestParam(required = false) Integer limit){
+        return exerciseRepositoryCustom.findByFilter(concept, difficulty, limit);
     }
     
     @ResponseStatus(HttpStatus.CREATED)

@@ -582,15 +582,26 @@ paths:
                   mensagem:
                     type: string
                     example: "Erro na requisição"
-  /exercise/random/{phaseId}:
+  /exercise/random:
     get:
         tags:
           - exercise
-        summary: Retorna 10 exercícios aleatórios da fase especificada.
+        summary: Retorna exercícios aleatórios com os parâmetros de conceito, dificuldade e limite.
+        description: O limite é utilizado para etabelecer o máximo de exercícios que deve ser retornado.
         parameters:
-          - name: phaseId
-            in: path
-            required: true
+          - name: concept
+            in: query
+            required: false
+            schema:
+              type: string
+          - name: difficulty
+            in: query
+            required: false
+            schema:
+              type: string
+          - name: limit
+            in: query
+            required: false
             schema:
               type: integer
         responses:
