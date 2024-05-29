@@ -2,6 +2,13 @@
     "configurations": [
         {
             "type": "java",
+            "name": "Application",
+            "request": "launch",
+            "mainClass": "com.binarying.binproject.Application",
+            "projectName": ""
+        },
+        {
+            "type": "java",
             "name": "Spring Boot-Application<bin-project>",
             "request": "launch",
             "cwd": "${workspaceFolder}",
