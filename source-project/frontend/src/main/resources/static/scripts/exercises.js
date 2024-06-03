@@ -5,16 +5,15 @@ const answers = document.querySelector('.answers');
 const figure = document.querySelector('.figure');
 const urlParams = new URLSearchParams(window.location.search);
 const title = urlParams.get('phaseName');
+const concept = urlParams.get('concept');
 const id = urlParams.get('phaseId');
-
 const btns = answers.querySelectorAll('button');
-
 let exercisesJson;
 let actualExercise = 0;
 let correct;
-
+// ------------------------------------------------------------------------------------ //
 load();
-
+// ------------------------------------------------------------------------------------ //
 function load() {
     document.title = title;
     for (let i = 0; i < btns.length; i++) {
@@ -22,7 +21,7 @@ function load() {
             progress(i, correct)
         })
     }
-    fetch('http://localhost:8080/api/exercise/random')
+    fetch(`http://localhost:8080/api/exercise/random?concept=${concept}`)
         .then(response => response.json())
         .then(data => loadExercises(data, actualExercise))
 }
