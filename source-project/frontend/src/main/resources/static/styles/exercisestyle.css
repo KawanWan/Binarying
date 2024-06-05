@@ -7,9 +7,9 @@ header {
     display: grid;
     gap: 10px;
     width: 100vw;
-    grid-template-areas: 
-    'back bar life'
-    'back quest void';
+    grid-template-areas:
+        'back bar life'
+        'back quest void';
     padding: 20px;
 }
 
@@ -44,17 +44,19 @@ header {
     align-items: center;
     gap: 5px;
 }
-#user-life i{
+
+#user-life i {
     color: #E71D36;
     font-size: 2em;
 }
+
 #user-life p {
     color: white;
     font-size: 1.8em;
     font-weight: bold;
 }
 
-#question{
+#question {
     grid-area: quest;
     width: 80vw;
     text-align: justify;
@@ -99,6 +101,102 @@ header {
     cursor: pointer;
     background-color: var(--main-color);
     opacity: 0.8;
+}
+
+/* Feedback */
+.correctAnswer {
+    position: absolute;
+    top: 0;
+    right: 0;
+    z-index: -1000;
+    background-color: var(--dark-color);
+    min-width: 100vw;
+    height: 100vh;
+}
+
+.correctAnswer main {
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+}
+
+.correctAnswer main h1 {
+    font-size: 5rem;
+    color: #FFFFFF;
+}
+
+.correctAnswer main p {
+    font-size: 2.5rem;
+    color: #FFFFFF;
+}
+
+.correctAnswer main button {
+    height: 11vh;
+    width: 15vw;
+    border-radius: 30px;
+    background-color: #0060FF;
+    border: 4px solid #FFFFFF;
+    color: #FFFFFF;
+    font-size: 3vh;
+}
+
+.btnCorrect {
+    margin-top: 5vh;
+    display: flex;
+    flex-direction: row;
+    gap: 5vh;
+}
+
+.next-button {
+    left: 15px;
+    top: 15px;
+}
+
+.next-button button {
+    display: flex;
+    grid-area: back;
+    color: #FFFFFF;
+    text-decoration: none;
+    background-color: transparent;
+    border: none;
+    border-radius: 50%;
+    width: 64px;
+    height: 64px;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+}
+
+.next-button button:hover {
+    background-color: var(--main-color);
+}
+
+.next-button button i {
+    align-self: center;
+    font-size: 1.8em;
+    color: #fff;
+}
+
+/* Parabéns */
+.correctAnswer nav {
+    max-width: 100vw;
+    margin: 0;
+    padding: 1vh 0 0 4vh;
+    display: flex;
+    color: #FFFFFF;
+    text-align: start;
+}
+
+.btnProsseguir {
+    margin-top: 5vh;
+    cursor: pointer;
+}
+
+.correctAnswer .btnProsseguir:hover {
+    background-color: #1F2020;
 }
 
 @media only screen and (max-width: 1500px) {
