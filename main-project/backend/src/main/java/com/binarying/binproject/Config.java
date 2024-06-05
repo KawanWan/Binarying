@@ -10,7 +10,7 @@ public class Config implements WebMvcConfigurer{
     @Override
     public void addCorsMappings(@SuppressWarnings("null") CorsRegistry registry) {
         registry.addMapping("/api/**")
-                .allowedOrigins("https://binarying-bin-front.azuremicroservices.io")
+                .allowedOrigins("https://binarying-backend-front.azuremicroservices.io")
                 .allowedMethods("GET");
     }
 }

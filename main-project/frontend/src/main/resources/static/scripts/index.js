@@ -1,6 +1,6 @@
 const universeList = document.querySelector('.universe-list');
 
-fetch('https://binarying-binarying.azuremicroservices.io/api/universe')
+fetch('https://binarying-backend-back.azuremicroservices.io/api/universe')
     .then(response => response.json())
     .then(json => loadUniverse(json))
     .catch(error => console.error(error));

@@ -22,7 +22,7 @@ function load() {
             progress(i, correct)
         })
     }
-    fetch('http://localhost:8080/api/exercise/random')
+    fetch('https://binarying-backend-back.azuremicroservices.io/api/exercise/random/1')
         .then(response => response.json())
         .then(data => loadExercises(data, actualExercise))
 }
